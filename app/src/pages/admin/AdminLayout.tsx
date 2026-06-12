@@ -24,6 +24,7 @@ import {
   CalendarDays,
   Calculator,
   ListChecks,
+  ShieldCheck,
 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { trpc } from "@/providers/trpc";
@@ -69,8 +70,9 @@ const menuGroups = [
   {
     label: "Sistema",
     items: [
-      { icon: Settings, label: "Configurações", path: "/admin/config" },
-      { icon: Users,    label: "Usuários",      path: "/admin/users" },
+      { icon: Settings,    label: "Configurações", path: "/admin/config" },
+      { icon: Users,       label: "Usuários",      path: "/admin/users" },
+      { icon: ShieldCheck, label: "Auditoria",     path: "/admin/auditoria" },
     ],
   },
 ];

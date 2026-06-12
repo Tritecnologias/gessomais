@@ -2,8 +2,9 @@ import { z } from "zod";
 import { eq, desc, count, gte, sql } from "drizzle-orm";
 import { createRouter, publicQuery, adminQuery } from "./middleware";
 import { getDb } from "./queries/connection";
-import { products, services, testimonials, faqs, siteConfig, users, jobOpenings, jobApplications, leads, portfolio, posts, partners, stockMovements, visits, tasks } from "@db/schema";
+import { products, services, testimonials, faqs, siteConfig, users, jobOpenings, jobApplications, leads, portfolio, posts, partners, stockMovements, visits, tasks, auditLogs } from "@db/schema";
 import { hashPassword } from "./lib/password";
+import { audit } from "./lib/audit";
 
 export const adminRouter = createRouter({
   // ========== PRODUCTS CRUD ==========
@@ -661,7 +662,7 @@ export const adminRouter = createRouter({
       .input(z.object({
         name: z.string().min(1),
         logo: z.string().min(1),
-        url: z.string().optional(),
+        url: z.string().url("URL inválida").optional().or(z.literal("")),
         sortOrder: z.number().default(0),
         active: z.boolean().default(true),
       }))
@@ -675,7 +676,7 @@ export const adminRouter = createRouter({
         id: z.number(),
         name: z.string().min(1).optional(),
         logo: z.string().optional(),
-        url: z.string().optional().nullable(),
+        url: z.string().url("URL inválida").optional().nullable().or(z.literal("")).or(z.null()),
         sortOrder: z.number().optional(),
         active: z.boolean().optional(),
       }))
@@ -898,9 +899,10 @@ export const adminRouter = createRouter({
       .input(z.object({ id: z.number(), role: z.enum(["user", "admin"]) }))
       .mutation(async ({ input, ctx }) => {
         if (input.id === ctx.user.id) throw new Error("Você não pode alterar seu próprio papel.");
-        const [target] = await getDb().select({ role: users.role }).from(users).where(eq(users.id, input.id)).limit(1);
+        const [target] = await getDb().select({ role: users.role, email: users.email }).from(users).where(eq(users.id, input.id)).limit(1);
         if (target?.role === "super_admin") throw new Error("O papel do super administrador não pode ser alterado.");
         await getDb().update(users).set({ role: input.role }).where(eq(users.id, input.id));
+        audit({ action: "user.setRole", entity: "users", entityId: input.id, detail: `role → ${input.role} (era: ${target?.role}) sobre ${target?.email}`, userId: ctx.user.id, userEmail: ctx.user.email ?? undefined });
         return { success: true };
       }),
 
@@ -936,10 +938,24 @@ export const adminRouter = createRouter({
       .input(z.object({ id: z.number() }))
       .mutation(async ({ input, ctx }) => {
         if (input.id === ctx.user.id) throw new Error("Você não pode excluir sua própria conta.");
-        const [target] = await getDb().select({ role: users.role }).from(users).where(eq(users.id, input.id)).limit(1);
+        const [target] = await getDb().select({ role: users.role, email: users.email }).from(users).where(eq(users.id, input.id)).limit(1);
         if (target?.role === "super_admin") throw new Error("O super administrador não pode ser excluído.");
         await getDb().delete(users).where(eq(users.id, input.id));
+        audit({ action: "user.delete", entity: "users", entityId: input.id, detail: `excluiu ${target?.email}`, userId: ctx.user.id, userEmail: ctx.user.email ?? undefined });
         return { success: true };
+      }),
+  }),
+
+  // ========== AUDIT LOGS ==========
+  auditLogs: createRouter({
+    list: adminQuery
+      .input(z.object({ limit: z.number().int().min(1).max(200).default(100) }))
+      .query(async ({ input }) => {
+        return getDb()
+          .select()
+          .from(auditLogs)
+          .orderBy(desc(auditLogs.createdAt))
+          .limit(input.limit);
       }),
   }),
 

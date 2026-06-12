@@ -182,6 +182,18 @@ export const partners = mysqlTable("partners", {
   updatedAt: timestamp("updatedAt").defaultNow().notNull().$onUpdate(() => new Date()),
 });
 
+export const auditLogs = mysqlTable("auditLogs", {
+  id: serial("id").primaryKey(),
+  userId: int("userId"),
+  userEmail: varchar("userEmail", { length: 320 }),
+  action: varchar("action", { length: 100 }).notNull(),
+  entity: varchar("entity", { length: 100 }),
+  entityId: int("entityId"),
+  detail: text("detail"),
+  ip: varchar("ip", { length: 64 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
 export const tasks = mysqlTable("tasks", {
   id: serial("id").primaryKey(),
   title: varchar("title", { length: 255 }).notNull(),
@@ -246,6 +258,7 @@ export type Partner = typeof partners.$inferSelect;
 export type InsertPartner = typeof partners.$inferInsert;
 export type JobOpening = typeof jobOpenings.$inferSelect;
 export type InsertJobOpening = typeof jobOpenings.$inferInsert;
+export type AuditLog = typeof auditLogs.$inferSelect;
 export type Task = typeof tasks.$inferSelect;
 export type InsertTask = typeof tasks.$inferInsert;
 export type Visit = typeof visits.$inferSelect;

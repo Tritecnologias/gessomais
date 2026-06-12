@@ -22,6 +22,7 @@ import PartnersPage from "./pages/admin/PartnersPage";
 import AgendaPage from "./pages/admin/AgendaPage";
 import CalculadoraConfigPage from "./pages/admin/CalculadoraConfigPage";
 import TasksPage from "./pages/admin/TasksPage";
+import AuditLogPage from "./pages/admin/AuditLogPage";
 
 export default function App() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="agenda" element={<AgendaPage />} />
         <Route path="tarefas" element={<TasksPage />} />
         <Route path="calculadora" element={<CalculadoraConfigPage />} />
+        <Route path="auditoria" element={<AuditLogPage />} />
         <Route path="config" element={<ConfigPage />} />
         <Route path="users" element={<UsersPage />} />
       </Route>
