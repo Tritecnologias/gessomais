@@ -41,10 +41,11 @@ export const adminRouter = createRouter({
         })
       )
       .mutation(async ({ input }) => {
+        const toDecimal = (v: string | number) => v.toString().replace(",", ".");
         const data = {
           ...input,
-          price: input.price.toString(),
-          oldPrice: input.oldPrice ? input.oldPrice.toString() : null,
+          price: toDecimal(input.price),
+          oldPrice: input.oldPrice ? toDecimal(input.oldPrice) : null,
         };
         const result = await getDb().insert(products).values(data);
         return { id: Number(result[0].insertId), ...data };
@@ -73,9 +74,10 @@ export const adminRouter = createRouter({
         for (const [key, val] of Object.entries(data)) {
           if (val !== undefined) updateData[key] = val;
         }
-        if (updateData.price) updateData.price = updateData.price.toString();
+        const toDecimal = (v: unknown) => String(v).replace(",", ".");
+        if (updateData.price) updateData.price = toDecimal(updateData.price);
         if (updateData.oldPrice === undefined) delete updateData.oldPrice;
-        else if (updateData.oldPrice) updateData.oldPrice = (updateData.oldPrice as string | number).toString();
+        else if (updateData.oldPrice) updateData.oldPrice = toDecimal(updateData.oldPrice);
         else updateData.oldPrice = null;
 
         await getDb()
