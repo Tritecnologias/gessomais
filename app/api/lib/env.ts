@@ -16,12 +16,12 @@ if (appSecret && appSecret.length < 32) {
 }
 
 export const env = {
-  appId: required("APP_ID"),
+  appId: process.env.APP_ID ?? "",
   appSecret,
   isProduction: process.env.NODE_ENV === "production",
   databaseUrl: required("DATABASE_URL"),
-  kimiAuthUrl: required("KIMI_AUTH_URL"),
-  kimiOpenUrl: required("KIMI_OPEN_URL"),
+  kimiAuthUrl: process.env.KIMI_AUTH_URL ?? "",
+  kimiOpenUrl: process.env.KIMI_OPEN_URL ?? "",
   ownerUnionId: process.env.OWNER_UNION_ID ?? "",
   superAdminEmail: process.env.SUPER_ADMIN_EMAIL ?? "",
   superAdminPassword: process.env.SUPER_ADMIN_PASSWORD ?? "",
