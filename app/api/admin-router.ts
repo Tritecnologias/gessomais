@@ -530,7 +530,8 @@ export const adminRouter = createRouter({
     updateNotes: adminQuery
       .input(z.object({ id: z.number(), notes: z.string(), value: z.string().optional() }))
       .mutation(async ({ input }) => {
-        await getDb().update(leads).set({ notes: input.notes, value: input.value ?? null, read: true }).where(eq(leads.id, input.id));
+        const value = input.value ? input.value.replace(",", ".") : null;
+        await getDb().update(leads).set({ notes: input.notes, value, read: true }).where(eq(leads.id, input.id));
         return { success: true };
       }),
 
