@@ -17,8 +17,10 @@ export const createRouter = t.router;
 const csrfGuard = t.middleware(async ({ ctx, next, type }) => {
   if (type === "mutation" && env.isProduction && env.allowedOrigin) {
     const origin = ctx.req.headers.get("origin") ?? "";
-    const allowed = env.allowedOrigin.split(",").map((o) => o.trim());
-    if (origin && !allowed.some((a) => origin === a || origin.endsWith(`.${a.replace(/^https?:\/\//, "")}`))) {
+    const stripProto = (s: string) => s.replace(/^https?:\/\//, "");
+    const originHost = stripProto(origin);
+    const allowed = env.allowedOrigin.split(",").map((o) => stripProto(o.trim()));
+    if (origin && originHost && !allowed.some((a) => originHost === a || originHost.endsWith(`.${a}`))) {
       throw new TRPCError({ code: "FORBIDDEN", message: "Origem não permitida." });
     }
   }
