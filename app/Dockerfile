@@ -32,4 +32,5 @@ COPY package.json ./
 EXPOSE 3000
 
 # Aplica migrations e inicia o servidor
-CMD ["sh", "-c", "node dist/migrate.js && npm start"]
+# Em caso de falha, mantém container vivo 1h para inspeção de logs
+CMD ["sh", "-c", "node dist/migrate.js 2>&1 && npm start 2>&1 || (echo '=== STARTUP FAILED ===' && sleep 3600)"]
