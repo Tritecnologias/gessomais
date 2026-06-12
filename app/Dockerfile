@@ -11,12 +11,12 @@ FROM deps AS build
 COPY . .
 # Servidor principal (API + assets estáticos)
 RUN npm run build
-# Script de migration compilado separadamente
+# Scripts de migration e setup compilados separadamente
 RUN npx esbuild db/migrate.ts \
-      --platform=node \
-      --bundle \
-      --format=esm \
-      --outfile=dist/migrate.js \
+      --platform=node --bundle --format=esm --outfile=dist/migrate.js \
+      "--banner:js=import { createRequire } from 'module';const require = createRequire(import.meta.url);"
+RUN npx esbuild db/setup.ts \
+      --platform=node --bundle --format=esm --outfile=dist/setup.js \
       "--banner:js=import { createRequire } from 'module';const require = createRequire(import.meta.url);"
 
 # ── Imagem de produção (mínima) ───────────────────────────────────
@@ -31,6 +31,5 @@ COPY package.json ./
 
 EXPOSE 3000
 
-# Aplica migrations e inicia o servidor
-# Em caso de falha, mantém container vivo 1h para inspeção de logs
-CMD ["sh", "-c", "node dist/migrate.js 2>&1 && npm start 2>&1 || (echo '=== STARTUP FAILED ===' && sleep 3600)"]
+# Aplica migrations, cria super admin (idempotente) e inicia o servidor
+CMD ["sh", "-c", "node dist/migrate.js && node dist/setup.js && npm start"]
