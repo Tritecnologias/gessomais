@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 42 56% 56%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 30 8% 94%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 30 8% 94%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 30 8% 94%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 6% 89%;
+    --input: 30 6% 89%;
+    --ring: 42 56% 56%;
+    --radius: 0.5rem;
+
+    --color-primary: #D4A74B;
+    --color-dark: #1A1A1A;
+    --color-light: #F5F3F0;
+    --color-gray: #6B6B6B;
+    --color-light-gray: #E5E2DE;
+    --color-success: #22C55E;
+    --color-error: #EF4444;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-lg transition-all duration-300;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+  }
+
+  .btn-primary:hover {
+    filter: brightness(0.9);
+    transform: scale(1.02);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-lg border-2 transition-all duration-300;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+  }
+
+  .container-main {
+    @apply mx-auto;
+    max-width: 1280px;
+    padding-left: clamp(1.5rem, 5vw, 4rem);
+    padding-right: clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Hide scrollbar for catalog slider */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

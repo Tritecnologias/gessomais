@@ -1,0 +1,33 @@
+# Dependências
+node_modules/
+app/node_modules/
+
+# Build e cache
+app/dist/
+.vite/
+app/.vite/
+
+# Ambiente — NUNCA commitar
+.env
+app/.env
+*.env
+
+# Credenciais sensíveis
+credenciais.txt
+*.key
+*.pem
+secrets.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

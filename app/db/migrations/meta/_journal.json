@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1781221584468,
+      "tag": "0000_sticky_morg",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1781222543980,
+      "tag": "0001_smart_toro",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1781223930047,
+      "tag": "0002_condemned_jimmy_woo",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1781224867517,
+      "tag": "0003_wandering_tomorrow_man",
+      "breakpoints": true
+    }
+  ]
+}
