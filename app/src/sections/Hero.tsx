@@ -107,7 +107,7 @@ export default function Hero() {
             {[
               `${statProjects}+ Projetos Entregues`,
               `${statYears} Anos de Experiência`,
-              'Garantia de 5 Anos',
+              get('heroGuarantee', 'Garantia de 5 Anos'),
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2">
                 {i > 0 && <div className="hidden md:block w-[1px] h-5 mr-2" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }} />}

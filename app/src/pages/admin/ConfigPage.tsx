@@ -24,6 +24,7 @@ const configGroups: ConfigGroup[] = [
     fields: [
       { key: "heroTitle", label: "Título", type: "text", placeholder: "Transforme Seu Ambiente..." },
       { key: "heroDescription", label: "Descrição", type: "textarea", placeholder: "Sancas iluminadas..." },
+      { key: "heroGuarantee", label: "Texto de Garantia (barra de confiança)", type: "text", placeholder: "Garantia de 5 Anos" },
     ],
   },
   {
@@ -106,6 +107,7 @@ export default function ConfigPage() {
   const utils = trpc.useUtils();
   const { data: configs, isLoading } = trpc.admin.config.list.useQuery();
   const [saved, setSaved] = useState<string | null>(null);
+  const [localValues, setLocalValues] = useState<Record<string, string>>({});
 
   const setMutation = trpc.admin.config.set.useMutation({
     onSuccess: (_, vars) => {
@@ -116,10 +118,17 @@ export default function ConfigPage() {
     onError: (err) => toast.error(err.message),
   });
 
-  const getValue = (key: string) =>
-    configs?.find((c) => c.key === key)?.value || "";
+  const getValue = (key: string) => {
+    if (key in localValues) return localValues[key];
+    return configs?.find((c) => c.key === key)?.value || "";
+  };
 
-  const handleSave = (key: string, value: string) => {
+  const handleChange = (key: string, value: string) => {
+    setLocalValues((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleSave = (key: string) => {
+    const value = getValue(key);
     setMutation.mutate({ key, value });
   };
 
@@ -159,31 +168,28 @@ export default function ConfigPage() {
 
                     {cfg.type === "textarea" ? (
                       <textarea
-                        defaultValue={value}
+                        value={value}
+                        onChange={(e) => handleChange(cfg.key, e.target.value)}
                         placeholder={cfg.placeholder}
                         rows={3}
-                        id={`input-${cfg.key}`}
                         className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 mb-3"
                       />
                     ) : (
                       <input
                         type={cfg.type === "number" ? "number" : "text"}
-                        defaultValue={value}
+                        value={value}
+                        onChange={(e) => handleChange(cfg.key, e.target.value)}
                         placeholder={cfg.placeholder}
-                        id={`input-${cfg.key}`}
                         className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 mb-3"
                       />
                     )}
 
                     <div className="flex items-center justify-between">
                       <p className="text-xs text-[#6B6B6B] truncate max-w-[60%]">
-                        Atual: {value || "(vazio)"}
+                        Atual: {configs?.find((c) => c.key === cfg.key)?.value || "(vazio)"}
                       </p>
                       <button
-                        onClick={() => {
-                          const el = document.getElementById(`input-${cfg.key}`) as HTMLInputElement | HTMLTextAreaElement;
-                          handleSave(cfg.key, el.value);
-                        }}
+                        onClick={() => handleSave(cfg.key)}
                         disabled={setMutation.isPending}
                         className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-200 shrink-0"
                         style={{
