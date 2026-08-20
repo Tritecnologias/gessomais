@@ -119,7 +119,7 @@ export default function Catalogo() {
                   {/* Content */}
                   <div className="p-5 flex flex-col flex-1">
                     <h3 className="text-base font-semibold text-[#1A1A1A] mb-1">{product.name}</h3>
-                    <p className="text-sm mb-3 line-clamp-2" style={{ color: '#6B6B6B' }}>
+                    <p className="text-sm mb-3 line-clamp-2 flex-1" style={{ color: '#6B6B6B' }}>
                       {product.description}
                     </p>
                     <div className="flex items-baseline gap-2 mb-4">
@@ -136,7 +136,7 @@ export default function Catalogo() {
                       href={`${whatsappBase}${encodeURIComponent(product.name)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-primary w-full text-xs py-3 mt-auto"
+                      className="btn-primary w-full text-xs py-3"
                     >
                       Comprar no WhatsApp
                       <MessageCircle className="ml-2 w-3.5 h-3.5" />
