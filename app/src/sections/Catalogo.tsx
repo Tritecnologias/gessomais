@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useStaggerFadeUp } from '../hooks/useScrollAnimation';
 import { trpc } from '@/providers/trpc';
@@ -11,6 +11,7 @@ export default function Catalogo() {
   });
 
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [showAll, setShowAll] = useState(false);
 
   const { data: products, isLoading } = trpc.admin.products.list.useQuery();
   const { data: configs } = trpc.admin.config.list.useQuery();
@@ -42,17 +43,85 @@ export default function Catalogo() {
             Nosso Catálogo
           </h2>
           <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
+            href="#catalogo"
+            onClick={(e) => { e.preventDefault(); setShowAll(!showAll); }}
             className="animate-item inline-flex items-center text-sm font-semibold text-[#D4A74B] hover:underline"
           >
-            Ver todos os produtos
+            {showAll ? 'Ver carrossel' : 'Ver todos os produtos'}
             <ChevronRight className="ml-1 w-4 h-4" />
           </a>
         </div>
       </div>
 
-      {/* Slider */}
+      {/* Slider / Grid */}
+      {showAll ? (
+        <div className="animate-item container-main">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {activeProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-white rounded-xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 group flex flex-col"
+                  style={{ borderColor: '#E5E2DE', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+                >
+                  {/* Image */}
+                  <div className="relative aspect-square overflow-hidden">
+                    <img
+                      src={product.image || '/images/catalogo-sanca-led.jpg'}
+                      alt={product.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    {product.badge && (
+                      <div className="absolute top-3 right-3">
+                        <span
+                          className="text-[0.65rem] font-medium uppercase tracking-wider px-3 py-1 rounded-full"
+                          style={{ backgroundColor: product.badgeColor || '#D4A74B', color: product.badgeTextColor || '#1A1A1A' }}
+                        >
+                          {product.badge}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="text-base font-semibold text-[#1A1A1A] mb-1">{product.name}</h3>
+                    <p className="text-sm mb-3 line-clamp-2 flex-1" style={{ color: '#6B6B6B' }}>
+                      {product.description}
+                    </p>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      {Number(product.price) === 0 ? (
+                        <span className="text-xl font-bold" style={{ color: '#D4A74B' }}>
+                          Consulte Preço
+                        </span>
+                      ) : (
+                        <>
+                          <span className="text-xl font-bold" style={{ color: '#22C55E' }}>
+                            R$ {product.price}/{product.unit}
+                          </span>
+                          {product.oldPrice && Number(product.oldPrice) > 0 && (
+                            <span className="text-sm line-through" style={{ color: '#6B6B6B' }}>
+                              R$ {product.oldPrice}
+                            </span>
+                          )}
+                        </>
+                      )}
+                    </div>
+                    <a
+                      href={`${whatsappBase}${encodeURIComponent(product.name)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary w-full text-xs py-3"
+                    >
+                      Comprar no WhatsApp
+                      <MessageCircle className="ml-2 w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      ) : (
       <div className="animate-item relative container-main">
         <button
           onClick={() => scrollSlider('left')}
@@ -154,6 +223,7 @@ export default function Catalogo() {
               ))}
         </div>
       </div>
+      )}
     </section>
   );
 }
