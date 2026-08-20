@@ -123,13 +123,21 @@ export default function Catalogo() {
                       {product.description}
                     </p>
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-xl font-bold" style={{ color: '#22C55E' }}>
-                        R$ {product.price}/{product.unit}
-                      </span>
-                      {product.oldPrice && (
-                        <span className="text-sm line-through" style={{ color: '#6B6B6B' }}>
-                          R$ {product.oldPrice}
+                      {Number(product.price) === 0 ? (
+                        <span className="text-xl font-bold" style={{ color: '#D4A74B' }}>
+                          Consulte Preço
                         </span>
+                      ) : (
+                        <>
+                          <span className="text-xl font-bold" style={{ color: '#22C55E' }}>
+                            R$ {product.price}/{product.unit}
+                          </span>
+                          {product.oldPrice && Number(product.oldPrice) > 0 && (
+                            <span className="text-sm line-through" style={{ color: '#6B6B6B' }}>
+                              R$ {product.oldPrice}
+                            </span>
+                          )}
+                        </>
                       )}
                     </div>
                     <a
