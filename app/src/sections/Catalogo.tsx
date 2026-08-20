@@ -93,7 +93,7 @@ export default function Catalogo() {
             : activeProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="flex-shrink-0 w-[260px] md:w-[280px] bg-white rounded-xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 group"
+                  className="flex-shrink-0 w-[260px] md:w-[280px] bg-white rounded-xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 group flex flex-col"
                   style={{ borderColor: '#E5E2DE', boxShadow: '0 2px 8px rgba(0,0,0,0.08)', scrollSnapAlign: 'start' }}
                 >
                   {/* Image */}
@@ -117,7 +117,7 @@ export default function Catalogo() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5">
+                  <div className="p-5 flex flex-col flex-1">
                     <h3 className="text-base font-semibold text-[#1A1A1A] mb-1">{product.name}</h3>
                     <p className="text-sm mb-3 line-clamp-2" style={{ color: '#6B6B6B' }}>
                       {product.description}
@@ -136,7 +136,7 @@ export default function Catalogo() {
                       href={`${whatsappBase}${encodeURIComponent(product.name)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-primary w-full text-xs py-3"
+                      className="btn-primary w-full text-xs py-3 mt-auto"
                     >
                       Comprar no WhatsApp
                       <MessageCircle className="ml-2 w-3.5 h-3.5" />
