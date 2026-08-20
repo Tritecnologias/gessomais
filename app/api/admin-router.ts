@@ -56,8 +56,8 @@ export const adminRouter = createRouter({
         z.object({
           id: z.number(),
           name: z.string().min(1).optional(),
-          description: z.string().optional(),
-          image: z.string().optional(),
+          description: z.string().optional().nullable(),
+          image: z.string().optional().nullable(),
           price: z.string().or(z.number()).optional(),
           oldPrice: z.string().or(z.number()).optional().nullable(),
           unit: z.string().optional(),

@@ -17,6 +17,8 @@ const emptyProduct: Product = {
   badge: null,
   badgeColor: "#D4A74B",
   badgeTextColor: "#1A1A1A",
+  quantity: 0,
+  minStock: 0,
   sortOrder: 0,
   active: true,
   createdAt: new Date(),
@@ -52,24 +54,35 @@ export default function ProductsPage() {
   });
 
   const handleSave = () => {
-    const data = {
-      name: editing.name,
-      description: editing.description || undefined,
-      image: editing.image || undefined,
-      price: editing.price,
-      oldPrice: editing.oldPrice || undefined,
-      unit: editing.unit,
-      badge: editing.badge || undefined,
-      badgeColor: editing.badgeColor || undefined,
-      badgeTextColor: editing.badgeTextColor || undefined,
-      sortOrder: editing.sortOrder,
-      active: editing.active,
-    };
-
     if (isEdit) {
-      updateMutation.mutate({ id: editing.id, ...data });
+      updateMutation.mutate({
+        id: editing.id,
+        name: editing.name,
+        description: editing.description || null,
+        image: editing.image || undefined,
+        price: editing.price,
+        oldPrice: editing.oldPrice || null,
+        unit: editing.unit,
+        badge: editing.badge || null,
+        badgeColor: editing.badgeColor || undefined,
+        badgeTextColor: editing.badgeTextColor || undefined,
+        sortOrder: editing.sortOrder,
+        active: editing.active,
+      });
     } else {
-      createMutation.mutate(data);
+      createMutation.mutate({
+        name: editing.name,
+        description: editing.description || undefined,
+        image: editing.image || undefined,
+        price: editing.price,
+        oldPrice: editing.oldPrice || undefined,
+        unit: editing.unit,
+        badge: editing.badge || undefined,
+        badgeColor: editing.badgeColor || undefined,
+        badgeTextColor: editing.badgeTextColor || undefined,
+        sortOrder: editing.sortOrder,
+        active: editing.active,
+      });
     }
   };
 
