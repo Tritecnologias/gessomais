@@ -14,7 +14,7 @@ export default function Footer() {
     configs?.find((c) => c.key === key)?.value || fallback;
 
   const companyName = get("footerCompanyName", "VSN Soluções em Gesso");
-  const footerLogo = get("footerLogo", get("headerLogo", "/images/vsn2-crop.png"));
+  const footerLogo = get("footerLogo", get("headerLogo", "/images/vsn2-crop.webp"));
   const tagline = get("footerTagline", "Transformando ambientes com excelência em gesso e drywall");
   const phone = get("footerPhone", "(11) 99999-9999");
   const email = get("footerEmail", "contato@gessopremium.com.br");
@@ -45,6 +45,8 @@ export default function Footer() {
                 <img
                   src={footerLogo}
                   alt={companyName}
+                  loading="lazy"
+                  decoding="async"
                   className="h-10 w-auto object-contain"
                 />
               </div>

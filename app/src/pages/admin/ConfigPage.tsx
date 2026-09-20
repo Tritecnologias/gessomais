@@ -22,9 +22,9 @@ const configGroups: ConfigGroup[] = [
   {
     title: "Identidade Visual & Cabeçalho",
     fields: [
-      { key: "headerLogo", label: "URL do Logo do Cabeçalho", type: "url", placeholder: "/images/vsn2-crop.png" },
+      { key: "headerLogo", label: "URL do Logo do Cabeçalho", type: "url", placeholder: "/images/vsn2-crop.webp" },
       { key: "headerLogoHeight", label: "Altura do Logo no Cabeçalho (pixels)", type: "number", placeholder: "46" },
-      { key: "footerLogo", label: "URL do Logo do Rodapé", type: "url", placeholder: "/images/vsn2-crop.png" },
+      { key: "footerLogo", label: "URL do Logo do Rodapé", type: "url", placeholder: "/images/vsn2-crop.webp" },
     ],
   },
   {

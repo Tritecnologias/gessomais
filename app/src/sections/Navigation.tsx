@@ -22,7 +22,7 @@ export default function Navigation() {
 
   const companyName = get('footerCompanyName', 'VSN Soluções em Gesso').toUpperCase();
   const configHeaderLogo = configs?.find((c) => c.key === 'headerLogo');
-  const headerLogo = configHeaderLogo !== undefined ? configHeaderLogo.value : '/images/vsn2-crop.png';
+  const headerLogo = configHeaderLogo?.value ? configHeaderLogo.value : '/images/vsn2-crop.webp';
   const logoHeight = parseInt(get('headerLogoHeight', '46'), 10) || 46;
   const whatsappNumber = get('whatsappNumber', '5511999999999');
   const whatsappMessage = get('whatsappMessage', 'Olá! Vim pelo site e gostaria de um orçamento.');
@@ -66,8 +66,12 @@ export default function Navigation() {
             <img
               src={headerLogo}
               alt={companyName}
+              width={Math.round(logoHeight * 1.51)}
+              height={logoHeight}
+              fetchPriority="high"
+              decoding="async"
               className="w-auto object-contain transition-all"
-              style={{ height: `${logoHeight}px`, maxHeight: '54px' }}
+              style={{ height: `${logoHeight}px`, maxHeight: '54px', aspectRatio: '408 / 270' }}
             />
           ) : (
             <span className="font-display text-2xl font-bold text-[#012D76]">

@@ -226,7 +226,7 @@ export default function AdminLayout() {
           <div className="flex items-center justify-between">
             <Link to="/admin" className="flex items-center gap-2.5 group">
               <div className="bg-white/95 px-2 py-1 rounded-lg shadow-sm">
-                <img src="/images/vsn2-crop.png" alt="Logo" className="h-7 w-auto object-contain" />
+                <img src="/images/vsn2-crop.webp" alt="Logo" className="h-7 w-auto object-contain" />
               </div>
               <span className="font-display text-sm font-bold text-white tracking-wide group-hover:text-[#93C5FD] transition-colors">
                 VSN ADMIN
