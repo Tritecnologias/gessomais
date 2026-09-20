@@ -58,52 +58,63 @@ export default function AntesDepois() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16">
           {cards.map((card, i) => (
-            <div key={i} className="animate-item">
+            <div
+              key={i}
+              className="animate-item bg-white rounded-2xl p-4 sm:p-5 border border-[#E5E2DE] shadow-sm hover:shadow-md transition-shadow flex flex-col"
+            >
+              {/* Image Container with Antes/Depois badges */}
               <div className="relative rounded-xl overflow-hidden group">
                 <img
                   src={card.image}
                   alt={card.title}
                   loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Labels overlay */}
-                <div className="absolute inset-0 flex">
-                  <div className="flex-1 flex items-start justify-start p-4">
+                <div className="absolute inset-0 flex pointer-events-none">
+                  <div className="flex-1 flex items-start justify-start p-3 sm:p-4">
                     <span
-                      className="text-xs font-medium uppercase tracking-[0.1em] px-3 py-1.5 rounded"
-                      style={{ backgroundColor: 'rgba(26,26,26,0.7)', color: '#fff' }}
+                      className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded backdrop-blur-sm shadow-sm"
+                      style={{ backgroundColor: 'rgba(26,26,26,0.75)', color: '#fff' }}
                     >
                       ANTES
                     </span>
                   </div>
                   <div
                     className="w-[2px] h-[80%] self-center"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.8)' }}
+                    style={{ backgroundColor: 'rgba(255,255,255,0.85)' }}
                   />
-                  <div className="flex-1 flex items-start justify-end p-4">
+                  <div className="flex-1 flex items-start justify-end p-3 sm:p-4">
                     <span
-                      className="text-xs font-medium uppercase tracking-[0.1em] px-3 py-1.5 rounded"
-                      style={{ backgroundColor: 'rgba(26,26,26,0.7)', color: '#fff' }}
+                      className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded backdrop-blur-sm shadow-sm"
+                      style={{ backgroundColor: 'rgba(26,26,26,0.75)', color: '#fff' }}
                     >
                       DEPOIS
                     </span>
                   </div>
                 </div>
-                {/* Badge */}
-                <div className="absolute top-4 right-4">
-                  <span
-                    className="text-xs font-semibold uppercase tracking-[0.1em] px-3 py-1.5 rounded-full shadow-sm"
-                    style={{ backgroundColor: '#012D76', color: '#FFFFFF' }}
-                  >
-                    {card.badge}
-                  </span>
-                </div>
               </div>
-              <div className="mt-4">
-                <h3 className="text-xl font-semibold text-[#1A1A1A] mb-1">{card.title}</h3>
-                <p className="text-sm" style={{ color: '#6B6B6B' }}>{card.description}</p>
+
+              {/* Card Content */}
+              <div className="pt-4 flex flex-col flex-1">
+                {card.badge && (
+                  <div className="mb-2.5">
+                    <span
+                      className="inline-flex items-center text-[11px] sm:text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm"
+                      style={{ backgroundColor: '#012D76', color: '#FFFFFF' }}
+                    >
+                      {card.badge}
+                    </span>
+                  </div>
+                )}
+                <h3 className="text-lg sm:text-xl font-bold text-[#1A1A1A] mb-1.5 leading-snug">
+                  {card.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#6B6B6B' }}>
+                  {card.description}
+                </p>
               </div>
             </div>
           ))}
