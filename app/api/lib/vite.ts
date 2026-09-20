@@ -14,7 +14,7 @@ export function serveStaticFiles(app: App) {
   app.use("*", serveStatic({ root: "./dist/public" }));
 
   // Fallback SPA: qualquer rota não resolvida retorna index.html
-  app.use("*", (c) => {
+  app.get("*", (c) => {
     const accept = c.req.header("accept") ?? "";
     if (accept.includes("text/html") || accept.includes("*/*")) {
       const content = fs.readFileSync(indexPath, "utf-8");

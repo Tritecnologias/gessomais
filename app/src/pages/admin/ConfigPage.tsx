@@ -20,6 +20,14 @@ interface ConfigGroup {
 
 const configGroups: ConfigGroup[] = [
   {
+    title: "Identidade Visual & Cabeçalho",
+    fields: [
+      { key: "headerLogo", label: "URL do Logo do Cabeçalho", type: "url", placeholder: "/images/vsn2-crop.png" },
+      { key: "headerLogoHeight", label: "Altura do Logo no Cabeçalho (pixels)", type: "number", placeholder: "46" },
+      { key: "footerLogo", label: "URL do Logo do Rodapé", type: "url", placeholder: "/images/vsn2-crop.png" },
+    ],
+  },
+  {
     title: "Seção Hero",
     fields: [
       { key: "heroTitle", label: "Título", type: "text", placeholder: "Transforme Seu Ambiente..." },
@@ -182,6 +190,18 @@ export default function ConfigPage() {
                         placeholder={cfg.placeholder}
                         className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 mb-3"
                       />
+                    )}
+
+                    {Boolean(value && (cfg.key.toLowerCase().includes("logo") || cfg.key.toLowerCase().includes("image") || cfg.key.toLowerCase().includes("poster"))) && (
+                      <div className="mb-3 p-2 bg-[#F5F3F0] rounded-lg inline-flex items-center gap-3">
+                        <img
+                          src={value}
+                          alt="Pré-visualização"
+                          className="h-10 max-w-[140px] object-contain rounded border border-[#E5E2DE] bg-white p-1"
+                          onError={(e) => { (e.currentTarget as HTMLElement).style.display = "none"; }}
+                        />
+                        <span className="text-xs text-[#6B6B6B]">Pré-visualização</span>
+                      </div>
                     )}
 
                     <div className="flex items-center justify-between">

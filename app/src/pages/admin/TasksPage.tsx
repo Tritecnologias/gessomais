@@ -6,7 +6,7 @@ import {
   Plus, Pencil, Trash2, CheckCircle2, Clock, AlertTriangle,
   User, Phone, Flag, ChevronDown, MessageSquare, RotateCcw,
 } from "lucide-react";
-import { format, formatDistanceToNow, isPast, isToday, isTomorrow } from "date-fns";
+import { format, formatDistanceToNow, isToday, isTomorrow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 type Status = "pendente" | "em_andamento" | "concluida" | "cancelada";

@@ -59,7 +59,9 @@ export default function JobOpeningsPage() {
     else createMutation.mutate(payload);
   };
 
-  const handleEdit = (item: JobForm) => {
+  type JobItem = NonNullable<typeof data>[number];
+
+  const handleEdit = (item: JobItem) => {
     setEditing({ ...emptyJob, ...item, description: item.description ?? "", requirements: item.requirements ?? "", location: item.location ?? "" });
     setIsEdit(true);
     setModalOpen(true);
@@ -87,7 +89,7 @@ export default function JobOpeningsPage() {
     {
       key: "title",
       header: "Vaga",
-      render: (item: JobForm) => (
+      render: (item: JobItem) => (
         <div>
           <p className="font-medium line-clamp-1">{item.title}</p>
           {item.location && <p className="text-xs text-[#6B6B6B] mt-0.5">{item.location}</p>}
@@ -97,8 +99,8 @@ export default function JobOpeningsPage() {
     {
       key: "type",
       header: "Tipo",
-      render: (item: JobForm) => (
-        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${TYPE_COLORS[item.type] ?? "bg-gray-100 text-gray-600"}`}>
+      render: (item: JobItem) => (
+        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${TYPE_COLORS[item.type as keyof typeof TYPE_COLORS] ?? "bg-gray-100 text-gray-600"}`}>
           {item.type}
         </span>
       ),
@@ -106,7 +108,7 @@ export default function JobOpeningsPage() {
     {
       key: "active",
       header: "Status",
-      render: (item: JobForm) => (
+      render: (item: JobItem) => (
         <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${item.active ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-600"}`}>
           {item.active ? "Ativa" : "Inativa"}
         </span>

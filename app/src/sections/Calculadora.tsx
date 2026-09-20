@@ -5,6 +5,7 @@ import { toast } from "sonner";
 
 type ServiceKey = "gesso_paredes" | "gesso_teto" | "drywall" | "reboco";
 type CalcResult = { item: string; qty: number; unit: string; note?: string }[];
+type ServiceDef = ReturnType<typeof buildServices>[ServiceKey];
 
 function buildServices(cfg: (key: string, fallback: string) => number) {
   return {

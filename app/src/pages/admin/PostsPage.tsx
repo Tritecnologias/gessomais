@@ -42,7 +42,9 @@ export default function PostsPage() {
     else createMutation.mutate(payload);
   };
 
-  const handleEdit = (item: Form) => {
+  type PostItem = NonNullable<typeof data>[number];
+
+  const handleEdit = (item: PostItem) => {
     setEditing({ ...empty, ...item, excerpt: item.excerpt ?? "", image: item.image ?? "" });
     setIsEdit(true); setModalOpen(true);
   };
@@ -55,7 +57,7 @@ export default function PostsPage() {
   const columns = [
     {
       key: "title", header: "Artigo",
-      render: (item: Form) => (
+      render: (item: PostItem) => (
         <div>
           <p className="font-medium line-clamp-1">{item.title}</p>
           <p className="text-xs text-[#6B6B6B] font-mono mt-0.5">/dicas/{item.slug}</p>
@@ -64,7 +66,7 @@ export default function PostsPage() {
     },
     {
       key: "active", header: "Status",
-      render: (item: Form) => (
+      render: (item: PostItem) => (
         <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${item.active ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-600"}`}>
           {item.active ? "Publicado" : "Rascunho"}
         </span>

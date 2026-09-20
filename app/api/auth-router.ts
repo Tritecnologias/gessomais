@@ -51,8 +51,7 @@ export const authRouter = createRouter({
         throw new TRPCError({ code: "UNAUTHORIZED", message: "Credenciais inválidas." });
       }
 
-      const { verifyPassword: verify } = await import("./lib/password");
-      const valid = await verify(input.password, user.passwordHash);
+      const valid = await verifyPassword(input.password, user.passwordHash);
       if (!valid) {
         audit({ action: "login.failed", detail: "Senha incorreta", ip, userId: user.id, userEmail: user.email ?? undefined });
         throw new TRPCError({ code: "UNAUTHORIZED", message: "Credenciais inválidas." });

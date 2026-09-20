@@ -222,10 +222,15 @@ export default function AdminLayout() {
         }`}
       >
         {/* Header */}
-        <div className="p-6 border-b border-white/10">
+        <div className="p-5 border-b border-white/10">
           <div className="flex items-center justify-between">
-            <Link to="/admin" className="font-display text-xl font-bold text-white">
-              GESSO PREMIUM
+            <Link to="/admin" className="flex items-center gap-2.5 group">
+              <div className="bg-white/95 px-2 py-1 rounded-lg shadow-sm">
+                <img src="/images/vsn2-crop.png" alt="Logo" className="h-7 w-auto object-contain" />
+              </div>
+              <span className="font-display text-sm font-bold text-white tracking-wide group-hover:text-[#D4A74B] transition-colors">
+                VSN ADMIN
+              </span>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
@@ -234,7 +239,7 @@ export default function AdminLayout() {
               <X className="w-5 h-5" />
             </button>
           </div>
-          <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <p className="text-[11px] mt-1 text-white/50">
             Painel Administrativo
           </p>
         </div>

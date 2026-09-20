@@ -41,7 +41,9 @@ export default function PortfolioPage() {
     else createMutation.mutate(payload);
   };
 
-  const handleEdit = (item: Form) => { setEditing({ ...empty, ...item, description: item.description ?? "" }); setIsEdit(true); setModalOpen(true); };
+  type PortfolioItem = NonNullable<typeof data>[number];
+
+  const handleEdit = (item: PortfolioItem) => { setEditing({ ...empty, ...item, description: item.description ?? "" }); setIsEdit(true); setModalOpen(true); };
   const handleAdd = () => { setEditing(empty); setIsEdit(false); setModalOpen(true); };
   const handleDelete = (id: number) => {
     const title = data?.find((p) => p.id === id)?.title ?? "este item";
@@ -51,13 +53,13 @@ export default function PortfolioPage() {
   const columns = [
     {
       key: "image", header: "Foto",
-      render: (item: Form) => (
+      render: (item: PortfolioItem) => (
         <img src={item.image} alt={item.title} className="w-14 h-14 object-cover rounded-lg border border-[#E5E2DE]" />
       ),
     },
     {
       key: "title", header: "Obra",
-      render: (item: Form) => (
+      render: (item: PortfolioItem) => (
         <div>
           <p className="font-medium line-clamp-1">{item.title}</p>
           <p className="text-xs text-[#6B6B6B]">{item.category}</p>
@@ -66,7 +68,7 @@ export default function PortfolioPage() {
     },
     {
       key: "active", header: "Status",
-      render: (item: Form) => (
+      render: (item: PortfolioItem) => (
         <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${item.active ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-600"}`}>
           {item.active ? "Ativo" : "Inativo"}
         </span>

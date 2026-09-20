@@ -993,7 +993,7 @@ export const adminRouter = createRouter({
       return {
         unreadLeads: leadsCount,
         unreadApps: appsCount,
-        overdueTasks: overdueTasks.length,
+        overdueTasksCount: overdueTasks.length,
         total: leadsCount + appsCount + overdueTasks.length,
         recentLeads,
         recentApps,

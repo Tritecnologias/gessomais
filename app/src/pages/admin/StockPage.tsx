@@ -11,12 +11,7 @@ import Modal from "@/components/admin/Modal";
 type StockItem = {
   id: number; name: string; unit: string;
   quantity: number; minStock: number; active: boolean;
-  status: "ok" | "baixo" | "zerado";
-};
-
-type Movement = {
-  id: number; productId: number; type: string;
-  quantity: number; notes: string | null; createdAt: Date;
+  status: "ok" | "baixo" | "zerado" | string;
 };
 
 const MOVE_TYPES = [

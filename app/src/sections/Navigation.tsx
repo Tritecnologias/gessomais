@@ -20,7 +20,10 @@ export default function Navigation() {
   const get = (key: string, fallback: string) =>
     configs?.find((c) => c.key === key)?.value || fallback;
 
-  const companyName = get('footerCompanyName', 'Gesso Premium').toUpperCase();
+  const companyName = get('footerCompanyName', 'VSN Soluções em Gesso').toUpperCase();
+  const configHeaderLogo = configs?.find((c) => c.key === 'headerLogo');
+  const headerLogo = configHeaderLogo !== undefined ? configHeaderLogo.value : '/images/vsn2-crop.png';
+  const logoHeight = parseInt(get('headerLogoHeight', '46'), 10) || 46;
   const whatsappNumber = get('whatsappNumber', '5511999999999');
   const whatsappMessage = get('whatsappMessage', 'Olá! Vim pelo site e gostaria de um orçamento.');
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -45,9 +48,10 @@ export default function Navigation() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.82)',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        boxShadow: scrolled ? '0 2px 16px rgba(0,0,0,0.08)' : 'none',
+        background: 'rgba(255, 255, 255, 0.97)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: scrolled ? '1px solid rgba(229, 231, 235, 0.9)' : '1px solid rgba(229, 231, 235, 0.5)',
+        boxShadow: scrolled ? '0 4px 20px -2px rgba(0, 0, 0, 0.07)' : '0 1px 3px rgba(0, 0, 0, 0.03)',
       }}
     >
       <div className="container-main flex items-center justify-between h-[72px]">
@@ -55,24 +59,34 @@ export default function Navigation() {
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="font-display text-2xl font-bold transition-colors duration-300"
-          style={{ color: scrolled ? '#1A1A1A' : '#FFFFFF' }}
+          className="flex items-center gap-3 transition-opacity duration-200 hover:opacity-85 py-1"
+          aria-label={companyName}
         >
-          {companyName}
+          {headerLogo ? (
+            <img
+              src={headerLogo}
+              alt={companyName}
+              className="w-auto object-contain transition-all"
+              style={{ height: `${logoHeight}px`, maxHeight: '54px' }}
+            />
+          ) : (
+            <span className="font-display text-2xl font-bold text-[#012D76]">
+              {companyName}
+            </span>
+          )}
         </a>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => {
-            const cls = "text-xs font-medium uppercase tracking-[0.1em] transition-colors duration-300 hover:text-[#D4A74B] relative group";
-            const style = { color: scrolled ? '#1A1A1A' : '#FFFFFF' };
-            const underline = <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4A74B] transition-all duration-300 group-hover:w-full" />;
+            const cls = "text-xs font-semibold uppercase tracking-[0.08em] transition-colors duration-200 text-[#1E293B] hover:text-[#012D76] relative py-1 group";
+            const underline = <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#012D76] transition-all duration-300 group-hover:w-full rounded-full" />;
             return link.external ? (
-              <Link key={link.href} to={link.href} className={cls} style={style}>
+              <Link key={link.href} to={link.href} className={cls}>
                 {link.label}{underline}
               </Link>
             ) : (
-              <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className={cls} style={style}>
+              <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className={cls}>
                 {link.label}{underline}
               </a>
             );
@@ -81,17 +95,22 @@ export default function Navigation() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-primary text-xs py-3 px-5">
-            Orçamento Grátis
-            <MessageCircle className="ml-2 w-4 h-4" />
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 text-xs font-semibold tracking-wide uppercase px-5 py-3 rounded-lg bg-[#012D76] text-white hover:bg-[#023892] shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span>Orçamento Grátis</span>
+            <MessageCircle className="w-4 h-4 text-[#25D366]" />
           </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2"
+          className="md:hidden p-2 text-[#1E293B] hover:text-[#012D76] transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
-          style={{ color: scrolled ? '#1A1A1A' : '#FFFFFF' }}
+          aria-label="Menu"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -99,24 +118,37 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-[#E5E2DE]">
-          <div className="container-main py-6 flex flex-col gap-4">
+        <div className="md:hidden bg-white/98 backdrop-blur-xl border-t border-slate-200 shadow-xl">
+          <div className="container-main py-6 flex flex-col gap-3">
             {navLinks.map((link) =>
               link.external ? (
-                <Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)}
-                  className="text-sm font-medium uppercase tracking-[0.1em] text-[#1A1A1A] hover:text-[#D4A74B] transition-colors">
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-sm font-semibold uppercase tracking-[0.08em] text-[#1E293B] hover:text-[#012D76] hover:bg-slate-50 px-3 py-2 rounded-lg transition-colors"
+                >
                   {link.label}
                 </Link>
               ) : (
-                <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm font-medium uppercase tracking-[0.1em] text-[#1A1A1A] hover:text-[#D4A74B] transition-colors">
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-sm font-semibold uppercase tracking-[0.08em] text-[#1E293B] hover:text-[#012D76] hover:bg-slate-50 px-3 py-2 rounded-lg transition-colors"
+                >
                   {link.label}
                 </a>
               )
             )}
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-primary text-xs py-3 px-5 mt-2 w-full">
-              Orçamento Grátis
-              <MessageCircle className="ml-2 w-4 h-4" />
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 text-xs font-semibold tracking-wide uppercase px-5 py-3 rounded-lg bg-[#012D76] text-white hover:bg-[#023892] shadow-sm transition-all mt-2 w-full"
+            >
+              <span>Orçamento Grátis</span>
+              <MessageCircle className="w-4 h-4 text-[#25D366]" />
             </a>
           </div>
         </div>

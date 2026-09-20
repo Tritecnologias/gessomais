@@ -13,8 +13,9 @@ export default function Footer() {
   const get = (key: string, fallback: string) =>
     configs?.find((c) => c.key === key)?.value || fallback;
 
-  const companyName = get("footerCompanyName", "Gesso Premium");
-  const tagline = get("footerTagline", "Transformando ambientes desde 2010");
+  const companyName = get("footerCompanyName", "VSN Soluções em Gesso");
+  const footerLogo = get("footerLogo", get("headerLogo", "/images/vsn2-crop.png"));
+  const tagline = get("footerTagline", "Transformando ambientes com excelência em gesso e drywall");
   const phone = get("footerPhone", "(11) 99999-9999");
   const email = get("footerEmail", "contato@gessopremium.com.br");
   const hours = get("footerHours", "Seg - Sáb: 8h às 18h");
@@ -39,9 +40,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Column 1 - Logo */}
           <div>
-            <h3 className="font-display text-xl font-bold text-white mb-3">
-              {companyName.toUpperCase()}
-            </h3>
+            {footerLogo ? (
+              <div className="mb-4 inline-block bg-white/95 px-3 py-1.5 rounded-xl shadow-sm">
+                <img
+                  src={footerLogo}
+                  alt={companyName}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+            ) : (
+              <h3 className="font-display text-xl font-bold text-white mb-3">
+                {companyName.toUpperCase()}
+              </h3>
+            )}
             <p className="text-sm" style={{ color: '#6B6B6B' }}>
               {tagline}
             </p>

@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import {
   CalendarDays, Plus, MapPin, User, Clock, CheckCircle2, XCircle, Pencil, Trash2, Phone,
 } from "lucide-react";
-import { format, isToday, isTomorrow, isPast, parseISO } from "date-fns";
+import { format, isToday, isTomorrow, isPast } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 type Status = "agendada" | "realizada" | "cancelada";

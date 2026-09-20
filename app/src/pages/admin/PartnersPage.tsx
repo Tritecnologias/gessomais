@@ -39,7 +39,9 @@ export default function PartnersPage() {
     else createMutation.mutate(payload);
   };
 
-  const handleEdit = (item: Form) => { setEditing({ ...empty, ...item, url: item.url ?? "" }); setIsEdit(true); setModalOpen(true); };
+  type PartnerItem = NonNullable<typeof data>[number];
+
+  const handleEdit = (item: PartnerItem) => { setEditing({ ...empty, ...item, url: item.url ?? "" }); setIsEdit(true); setModalOpen(true); };
   const handleAdd = () => { setEditing(empty); setIsEdit(false); setModalOpen(true); };
   const handleDelete = (id: number) => {
     const name = data?.find((p) => p.id === id)?.name ?? "este parceiro";
@@ -49,14 +51,14 @@ export default function PartnersPage() {
   const columns = [
     {
       key: "logo", header: "Logo",
-      render: (item: Form) => (
+      render: (item: PartnerItem) => (
         <img src={item.logo} alt={item.name} className="h-10 max-w-[100px] object-contain grayscale" />
       ),
     },
     { key: "name", header: "Nome" },
     {
       key: "active", header: "Status",
-      render: (item: Form) => (
+      render: (item: PartnerItem) => (
         <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${item.active ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-600"}`}>
           {item.active ? "Ativo" : "Inativo"}
         </span>
