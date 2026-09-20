@@ -73,7 +73,7 @@ export default function Footer() {
                       const el = document.querySelector('#servicos');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="text-sm transition-colors duration-300 hover:text-[#D4A74B]"
+                    className="text-sm transition-colors duration-300 hover:text-[#60A5FA]"
                     style={{ color: '#6B6B6B' }}
                   >
                     {link}
@@ -94,7 +94,7 @@ export default function Footer() {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm transition-colors duration-300 hover:text-[#D4A74B]"
+                  className="text-sm transition-colors duration-300 hover:text-[#60A5FA]"
                   style={{ color: '#6B6B6B' }}
                 >
                   WhatsApp
@@ -131,7 +131,7 @@ export default function Footer() {
                     target={link.href !== '#' ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     onClick={link.href === '#' ? (e) => e.preventDefault() : undefined}
-                    className="text-sm transition-colors duration-300 hover:text-[#D4A74B]"
+                    className="text-sm transition-colors duration-300 hover:text-[#60A5FA]"
                     style={{ color: '#6B6B6B' }}
                   >
                     {link.name}

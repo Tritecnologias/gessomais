@@ -135,7 +135,7 @@ export default function Calculadora() {
       <div className="max-w-5xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 bg-[#D4A74B]/15 text-[#D4A74B] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 bg-[#012D76]/10 text-[#012D76] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             <Calculator className="w-4 h-4" /> Calculadora de Materiais
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-[#1A1A1A] mb-4">
@@ -158,8 +158,8 @@ export default function Calculadora() {
                     onClick={() => { setService(key); setResult(null); }}
                     className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 text-center transition-all ${
                       service === key
-                        ? "border-[#D4A74B] bg-[#D4A74B]/5"
-                        : "border-[#E5E2DE] hover:border-[#D4A74B]/50"
+                        ? "border-[#012D76] bg-[#012D76]/5"
+                        : "border-[#E5E2DE] hover:border-[#012D76]/50"
                     }`}
                   >
                     <span className="text-2xl">{s.icon}</span>
@@ -181,13 +181,13 @@ export default function Calculadora() {
                   value={area}
                   onChange={(e) => { setArea(e.target.value); setResult(null); }}
                   placeholder="Ex: 24"
-                  className="flex-1 border border-[#E5E2DE] rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#D4A74B]"
+                  className="flex-1 border border-[#E5E2DE] rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#012D76]"
                 />
                 <span className="flex items-center text-sm text-[#6B6B6B] font-medium">m²</span>
                 <button
                   onClick={calculate}
                   disabled={!service || !area || Number(area) <= 0}
-                  className="bg-[#1A1A1A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#333] transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="bg-[#012D76] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#023892] shadow-sm transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                   Calcular <ChevronRight className="w-4 h-4" />
                 </button>
@@ -201,7 +201,7 @@ export default function Calculadora() {
             {result && (
               <div className="border-t border-[#E5E2DE] pt-8">
                 <div className="flex items-center gap-2 mb-4">
-                  <Package className="w-5 h-5 text-[#D4A74B]" />
+                  <Package className="w-5 h-5 text-[#012D76]" />
                   <p className="text-sm font-semibold text-[#1A1A1A]">
                     Estimativa para {area}m² — {service && SERVICES[service].label}
                   </p>
@@ -209,8 +209,8 @@ export default function Calculadora() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
                   {result.map((item, i) => (
                     <div key={i} className="bg-[#F5F3F0] rounded-xl p-4 flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-[#D4A74B]/15 flex items-center justify-center shrink-0">
-                        <span className="text-lg font-bold text-[#D4A74B]">{item.qty}</span>
+                      <div className="w-10 h-10 rounded-lg bg-[#012D76]/10 flex items-center justify-center shrink-0">
+                        <span className="text-lg font-bold text-[#012D76]">{item.qty}</span>
                       </div>
                       <div>
                         <p className="text-xs font-semibold text-[#1A1A1A]">{item.unit}</p>
@@ -231,7 +231,7 @@ export default function Calculadora() {
                   <button
                     onClick={requestQuote}
                     disabled={submitting}
-                    className="w-full sm:w-auto bg-[#D4A74B] text-[#1A1A1A] font-bold text-sm px-8 py-3 rounded-xl hover:bg-[#c49640] transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto bg-[#012D76] text-white font-bold text-sm px-8 py-3 rounded-xl hover:bg-[#023892] shadow-md hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {submitting ? "Enviando..." : "Solicitar Orçamento com Esses Materiais"}
                     <ChevronRight className="w-4 h-4" />

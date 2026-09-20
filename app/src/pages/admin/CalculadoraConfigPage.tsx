@@ -124,7 +124,7 @@ export default function CalculadoraConfigPage() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <Calculator className="w-6 h-6 text-[#D4A74B]" />
+        <Calculator className="w-6 h-6 text-[#012D76]" />
         <h2 className="text-2xl font-display font-bold text-[#1A1A1A]">Calculadora — Coeficientes</h2>
       </div>
       <p className="text-sm text-[#6B6B6B] mb-6 max-w-2xl">
@@ -175,7 +175,7 @@ export default function CalculadoraConfigPage() {
                   step={field.step ?? 1}
                   value={get(field.key, field.defaultValue)}
                   onChange={(e) => set(field.key, e.target.value)}
-                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                 />
                 <span className="text-xs text-[#9CA3AF] shrink-0 w-16">{field.unit}</span>
               </div>
@@ -188,7 +188,7 @@ export default function CalculadoraConfigPage() {
           <button
             onClick={() => saveService(activeService)}
             disabled={saving}
-            className="flex items-center gap-2 bg-[#D4A74B] text-[#1A1A1A] font-semibold text-sm px-6 py-2.5 rounded-lg hover:bg-[#c49640] transition-colors disabled:opacity-50"
+            className="flex items-center gap-2 bg-[#012D76] text-white font-semibold text-sm px-6 py-2.5 rounded-lg hover:bg-[#023892] transition-colors disabled:opacity-50"
           >
             <Save className="w-4 h-4" />
             {saving ? "Salvando..." : "Salvar Configurações"}

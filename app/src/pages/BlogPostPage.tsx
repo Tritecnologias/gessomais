@@ -34,7 +34,7 @@ export default function BlogPostPage() {
             ) : !post || !post.active ? (
               <div className="text-center py-20">
                 <p className="text-[#6B6B6B] text-lg">Artigo não encontrado.</p>
-                <Link to="/dicas" className="mt-4 inline-block text-[#D4A74B] underline text-sm">Ver todos os artigos</Link>
+                <Link to="/dicas" className="mt-4 inline-block text-[#012D76] underline text-sm font-semibold">Ver todos os artigos</Link>
               </div>
             ) : (
               <article>

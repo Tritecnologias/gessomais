@@ -45,7 +45,7 @@ export default function Catalogo() {
           <a
             href="#catalogo"
             onClick={(e) => { e.preventDefault(); setShowAll(!showAll); }}
-            className="animate-item inline-flex items-center text-sm font-semibold text-[#D4A74B] hover:underline"
+            className="animate-item inline-flex items-center text-sm font-semibold text-[#012D76] hover:underline"
           >
             {showAll ? 'Ver carrossel' : 'Ver todos os produtos'}
             <ChevronRight className="ml-1 w-4 h-4" />
@@ -74,8 +74,8 @@ export default function Catalogo() {
                     {product.badge && (
                       <div className="absolute top-3 right-3">
                         <span
-                          className="text-[0.65rem] font-medium uppercase tracking-wider px-3 py-1 rounded-full"
-                          style={{ backgroundColor: product.badgeColor || '#D4A74B', color: product.badgeTextColor || '#1A1A1A' }}
+                          className="text-[0.65rem] font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
+                          style={{ backgroundColor: product.badgeColor || '#012D76', color: product.badgeTextColor || '#FFFFFF' }}
                         >
                           {product.badge}
                         </span>
@@ -91,7 +91,7 @@ export default function Catalogo() {
                     </p>
                     <div className="flex items-baseline gap-2 mb-4">
                       {Number(product.price) === 0 ? (
-                        <span className="text-xl font-bold" style={{ color: '#D4A74B' }}>
+                        <span className="text-xl font-bold" style={{ color: '#012D76' }}>
                           Consulte Preço
                         </span>
                       ) : (
@@ -108,13 +108,13 @@ export default function Catalogo() {
                       )}
                     </div>
                     <a
-                      href={`${whatsappBase}${encodeURIComponent(product.name)}`}
+                      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Gostaria de um orçamento para: ${product.name}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-primary w-full text-xs py-3"
+                      className="btn-primary w-full text-xs py-3 mt-auto"
                     >
-                      Comprar no WhatsApp
-                      <MessageCircle className="ml-2 w-3.5 h-3.5" />
+                      Pedir Orçamento
+                      <MessageCircle className="ml-2 w-4 h-4" />
                     </a>
                   </div>
                 </div>
@@ -125,14 +125,14 @@ export default function Catalogo() {
       <div className="animate-item relative container-main">
         <button
           onClick={() => scrollSlider('left')}
-          className="hidden lg:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border items-center justify-center transition-all duration-300 hover:bg-[#D4A74B] hover:border-[#D4A74B] group"
+          className="hidden lg:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border items-center justify-center transition-all duration-300 hover:bg-[#012D76] hover:border-[#012D76] group"
           style={{ borderColor: '#E5E2DE' }}
         >
           <ChevronLeft className="w-5 h-5 text-[#6B6B6B] group-hover:text-white transition-colors" />
         </button>
         <button
           onClick={() => scrollSlider('right')}
-          className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border items-center justify-center transition-all duration-300 hover:bg-[#D4A74B] hover:border-[#D4A74B] group"
+          className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border items-center justify-center transition-all duration-300 hover:bg-[#012D76] hover:border-[#012D76] group"
           style={{ borderColor: '#E5E2DE' }}
         >
           <ChevronRight className="w-5 h-5 text-[#6B6B6B] group-hover:text-white transition-colors" />
@@ -176,8 +176,8 @@ export default function Catalogo() {
                     {product.badge && (
                       <div className="absolute top-3 right-3">
                         <span
-                          className="text-[0.65rem] font-medium uppercase tracking-wider px-3 py-1 rounded-full"
-                          style={{ backgroundColor: product.badgeColor || '#D4A74B', color: product.badgeTextColor || '#1A1A1A' }}
+                          className="text-[0.65rem] font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
+                          style={{ backgroundColor: product.badgeColor || '#012D76', color: product.badgeTextColor || '#FFFFFF' }}
                         >
                           {product.badge}
                         </span>
@@ -193,7 +193,7 @@ export default function Catalogo() {
                     </p>
                     <div className="flex items-baseline gap-2 mb-4">
                       {Number(product.price) === 0 ? (
-                        <span className="text-xl font-bold" style={{ color: '#D4A74B' }}>
+                        <span className="text-xl font-bold" style={{ color: '#012D76' }}>
                           Consulte Preço
                         </span>
                       ) : (

@@ -62,7 +62,7 @@ export default function Hero() {
           <div ref={badgeRef} className="inline-block mb-6 opacity-0" style={{ transform: 'translateY(30px)' }}>
             <span
               className="text-xs font-medium uppercase tracking-[0.15em] px-4 py-2 rounded-full"
-              style={{ backgroundColor: 'rgba(212, 167, 75, 0.15)', color: '#D4A74B', border: '1px solid rgba(212, 167, 75, 0.3)' }}
+              style={{ backgroundColor: 'rgba(1, 45, 118, 0.5)', color: '#93C5FD', border: '1px solid rgba(147, 197, 253, 0.4)' }}
             >
               ⚡ ORÇAMENTO GRÁTIS EM 24H
             </span>
@@ -111,7 +111,7 @@ export default function Hero() {
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2">
                 {i > 0 && <div className="hidden md:block w-[1px] h-5 mr-2" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }} />}
-                <Check className="w-4 h-4 text-[#D4A74B] flex-shrink-0" />
+                <Check className="w-4 h-4 text-[#38BDF8] flex-shrink-0" />
                 <span className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{item}</span>
               </div>
             ))}

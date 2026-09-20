@@ -8,7 +8,7 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
       <span
         ref={ref}
         className="font-display font-bold block"
-        style={{ fontSize: 'clamp(3rem, 6vw, 4rem)', color: '#D4A74B', lineHeight: 1.1 }}
+        style={{ fontSize: 'clamp(3rem, 6vw, 4rem)', color: '#60A5FA', lineHeight: 1.1 }}
       >
         0
       </span>

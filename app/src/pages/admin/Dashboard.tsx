@@ -10,14 +10,14 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 const statCards = [
-  { key: "products" as const, label: "Produtos", icon: Package, color: "#D4A74B", href: "/admin/products" },
+  { key: "products" as const, label: "Produtos", icon: Package, color: "#012D76", href: "/admin/products" },
   { key: "services" as const, label: "Serviços", icon: Briefcase, color: "#22C55E", href: "/admin/services" },
   { key: "testimonials" as const, label: "Depoimentos", icon: MessageSquare, color: "#3B82F6", href: "/admin/testimonials" },
   { key: "faqs" as const, label: "Perguntas FAQ", icon: HelpCircle, color: "#8B5CF6", href: "/admin/faqs" },
 ];
 
 const typeColors: Record<string, string> = {
-  Produto: "#D4A74B",
+  Produto: "#012D76",
   Serviço: "#22C55E",
   Depoimento: "#3B82F6",
   FAQ: "#8B5CF6",
@@ -88,7 +88,7 @@ export default function Dashboard() {
             <Link
               key={card.key}
               to={card.href}
-              className="bg-white rounded-xl border border-[#E5E2DE] p-5 hover:border-[#D4A74B]/50 transition-colors block"
+              className="bg-white rounded-xl border border-[#E5E2DE] p-5 hover:border-[#012D76]/50 transition-colors block"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${card.color}15` }}>
@@ -120,7 +120,7 @@ export default function Dashboard() {
         {/* Leads por mês */}
         <div className="bg-white rounded-xl border border-[#E5E2DE] p-5 lg:col-span-2">
           <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="w-4 h-4 text-[#D4A74B]" />
+            <TrendingUp className="w-4 h-4 text-[#012D76]" />
             <h3 className="text-sm font-semibold text-[#1A1A1A]">Leads — últimos 6 meses</h3>
           </div>
           {monthlyData.length === 0 ? (
@@ -136,7 +136,7 @@ export default function Dashboard() {
                   contentStyle={{ borderRadius: 8, border: "1px solid #E5E2DE", fontSize: 12 }}
                   formatter={(v: number) => [v, "Leads"]}
                 />
-                <Bar dataKey="total" fill="#D4A74B" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="total" fill="#012D76" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           )}
@@ -186,7 +186,7 @@ export default function Dashboard() {
             <div className="flex items-center gap-2 mb-4">
               <AlertTriangle className="w-4 h-4 text-amber-500" />
               <h3 className="text-sm font-semibold text-[#1A1A1A]">Alertas de Estoque</h3>
-              <Link to="/admin/estoque" className="ml-auto text-xs text-[#D4A74B] hover:underline">Ver todos</Link>
+              <Link to="/admin/estoque" className="ml-auto text-xs text-[#012D76] hover:underline">Ver todos</Link>
             </div>
             <ul className="space-y-2">
               {stockAlerts.slice(0, 5).map((item) => (

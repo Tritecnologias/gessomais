@@ -163,9 +163,10 @@ export default function TasksPage() {
         <h2 className="text-2xl font-display font-bold text-[#1A1A1A]">Tarefas</h2>
         <button
           onClick={openCreate}
-          className="flex items-center gap-2 bg-[#D4A74B] text-[#1A1A1A] font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#c49640] transition-colors"
+          className="flex items-center gap-2 bg-[#012D76] text-white font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#023892] transition-colors"
         >
-          <Plus className="w-4 h-4" /> Nova Tarefa
+          <Plus className="w-4 h-4" />
+          Nova Tarefa
         </button>
       </div>
 
@@ -186,8 +187,8 @@ export default function TasksPage() {
           <p className="text-2xl font-bold text-[#1A1A1A]">{counts.em_andamento}</p>
           <p className="text-xs font-medium text-[#6B6B6B]">Em Andamento</p>
         </button>
-        <button onClick={() => setFilter("pendente")} className={`rounded-xl border p-4 text-left transition-all ${filter === "pendente" ? "border-[#D4A74B] bg-amber-50" : "bg-white border-[#E5E2DE] hover:border-[#D4A74B]/50"}`}>
-          <Flag className="w-5 h-5 text-[#D4A74B] mb-1" />
+        <button onClick={() => setFilter("pendente")} className={`rounded-xl border p-4 text-left transition-all ${filter === "pendente" ? "border-amber-400 bg-amber-50" : "bg-white border-[#E5E2DE] hover:border-amber-400/50"}`}>
+          <Flag className="w-5 h-5 text-amber-500 mb-1" />
           <p className="text-2xl font-bold text-[#1A1A1A]">{counts.pendente}</p>
           <p className="text-xs font-medium text-[#6B6B6B]">Pendentes</p>
         </button>
@@ -225,7 +226,7 @@ export default function TasksPage() {
         <div className="bg-white rounded-xl border border-[#E5E2DE] p-12 text-center">
           <CheckCircle2 className="w-10 h-10 text-green-400 mx-auto mb-3" />
           <p className="text-[#6B6B6B]">Nenhuma tarefa encontrada.</p>
-          <button onClick={openCreate} className="mt-3 text-sm text-[#D4A74B] font-medium hover:underline">
+          <button onClick={openCreate} className="mt-3 text-sm text-[#012D76] font-semibold hover:underline">
             Criar primeira tarefa
           </button>
         </div>
@@ -404,7 +405,7 @@ export default function TasksPage() {
                   value={form.title}
                   onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
                   placeholder="Ex: Pintar parede do depósito"
-                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                 />
               </div>
               <div>
@@ -414,7 +415,7 @@ export default function TasksPage() {
                   value={form.description}
                   onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
                   placeholder="Detalhe o que precisa ser feito..."
-                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B] resize-none"
+                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76] resize-none"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -425,7 +426,7 @@ export default function TasksPage() {
                     value={form.assignee}
                     onChange={(e) => setForm((f) => ({ ...f, assignee: e.target.value }))}
                     placeholder="Nome do funcionário"
-                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                   />
                 </div>
                 <div>
@@ -434,7 +435,7 @@ export default function TasksPage() {
                     value={form.phone}
                     onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
                     placeholder="(11) 99999-0000"
-                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                   />
                 </div>
               </div>
@@ -446,7 +447,7 @@ export default function TasksPage() {
                     type="datetime-local"
                     value={form.deadline}
                     onChange={(e) => setForm((f) => ({ ...f, deadline: e.target.value }))}
-                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                   />
                 </div>
                 <div>
@@ -454,7 +455,7 @@ export default function TasksPage() {
                   <select
                     value={form.priority}
                     onChange={(e) => setForm((f) => ({ ...f, priority: e.target.value as Priority }))}
-                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                   >
                     <option value="baixa">🔵 Baixa</option>
                     <option value="media">🔵 Média</option>
@@ -469,7 +470,7 @@ export default function TasksPage() {
                   <select
                     value={form.priority}
                     onChange={(e) => setForm((f) => ({ ...f, priority: e.target.value as Priority }))}
-                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                   >
                     <option value="pendente">Pendente</option>
                     <option value="em_andamento">Em Andamento</option>
@@ -485,7 +486,7 @@ export default function TasksPage() {
                   value={form.notes}
                   onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
                   placeholder="Anotações para o admin..."
-                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B] resize-none"
+                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76] resize-none"
                 />
               </div>
               <div className="flex gap-3 pt-2">
@@ -495,7 +496,7 @@ export default function TasksPage() {
                 <button
                   type="submit"
                   disabled={createMut.isPending || updateMut.isPending}
-                  className="flex-1 bg-[#D4A74B] text-[#1A1A1A] font-semibold text-sm py-2.5 rounded-lg hover:bg-[#c49640] transition-colors disabled:opacity-50"
+                  className="flex-1 bg-[#012D76] text-white font-semibold text-sm py-2.5 rounded-lg hover:bg-[#023892] transition-colors disabled:opacity-50"
                 >
                   {createMut.isPending || updateMut.isPending ? "Salvando..." : modal.editing ? "Atualizar" : "Criar Tarefa"}
                 </button>

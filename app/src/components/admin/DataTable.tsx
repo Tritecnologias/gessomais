@@ -82,7 +82,7 @@ function SortableRow<T extends { id: number }>({
         <div className="flex items-center justify-end gap-2">
           <button
             onClick={() => onEdit(item)}
-            className="p-1.5 rounded-lg text-[#6B6B6B] hover:text-[#D4A74B] hover:bg-[#D4A74B]/10 transition-all"
+            className="p-1.5 rounded-lg text-[#6B6B6B] hover:text-[#012D76] hover:bg-[#012D76]/10 transition-all"
           >
             <Pencil className="w-4 h-4" />
           </button>
@@ -230,14 +230,14 @@ export default function DataTable<T extends { id: number }>({
                 setSearch(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full sm:w-64 pl-9 pr-4 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full sm:w-64 pl-9 pr-4 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
           {onReorder && (
             <button
               onClick={handleEnterReorder}
               title="Reordenar"
-              className="p-2.5 rounded-lg border border-[#E5E2DE] text-[#6B6B6B] hover:text-[#D4A74B] hover:border-[#D4A74B]/50 transition-all"
+              className="p-2.5 rounded-lg border border-[#E5E2DE] text-[#6B6B6B] hover:text-[#012D76] hover:border-[#012D76]/50 transition-all"
             >
               <ArrowUpDown className="w-4 h-4" />
             </button>
@@ -300,7 +300,7 @@ export default function DataTable<T extends { id: number }>({
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => onEdit(item)}
-                        className="p-1.5 rounded-lg text-[#6B6B6B] hover:text-[#D4A74B] hover:bg-[#D4A74B]/10 transition-all"
+                        className="p-1.5 rounded-lg text-[#6B6B6B] hover:text-[#012D76] hover:bg-[#012D76]/10 transition-all"
                       >
                         <Pencil className="w-4 h-4" />
                       </button>

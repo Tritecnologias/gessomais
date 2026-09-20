@@ -106,7 +106,7 @@ export default function UsersPage() {
                         {user.avatar ? (
                           <img src={user.avatar} alt={user.name || ""} className="w-9 h-9 rounded-full object-cover" />
                         ) : (
-                          <div className="w-9 h-9 rounded-full bg-[#D4A74B] flex items-center justify-center text-sm font-bold text-[#1A1A1A]">
+                          <div className="w-9 h-9 rounded-full bg-[#012D76] flex items-center justify-center text-sm font-bold text-white">
                             {user.name?.charAt(0) ?? "?"}
                           </div>
                         )}
@@ -138,7 +138,7 @@ export default function UsersPage() {
                               : "cursor-pointer hover:opacity-80"
                           } ${
                             user.role === "admin"
-                              ? "bg-[#D4A74B]/15 text-[#a07830]"
+                              ? "bg-[#012D76]/10 text-[#012D76]"
                               : "bg-gray-100 text-[#6B6B6B]"
                           }`}
                         >
@@ -181,7 +181,7 @@ export default function UsersPage() {
               type="text"
               value={newUser.name}
               onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
           <div>
@@ -190,7 +190,7 @@ export default function UsersPage() {
               type="email"
               value={newUser.email}
               onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
           <div>
@@ -200,7 +200,7 @@ export default function UsersPage() {
               value={newUser.password}
               onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
               placeholder="Mínimo 6 caracteres"
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
           <div>
@@ -208,7 +208,7 @@ export default function UsersPage() {
             <select
               value={newUser.role}
               onChange={(e) => setNewUser({ ...newUser, role: e.target.value as "user" | "admin" })}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             >
               <option value="admin">Administrador</option>
               <option value="user">Usuário</option>

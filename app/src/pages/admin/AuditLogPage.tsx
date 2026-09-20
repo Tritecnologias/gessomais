@@ -27,14 +27,14 @@ export default function AuditLogPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <Shield className="w-6 h-6 text-[#D4A74B]" />
+          <Shield className="w-6 h-6 text-[#012D76]" />
           <h2 className="text-2xl font-display font-bold text-[#1A1A1A]">Auditoria de Segurança</h2>
         </div>
         <div className="flex items-center gap-3">
           <select
             value={limit}
             onChange={(e) => setLimit(Number(e.target.value))}
-            className="border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+            className="border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
           >
             <option value={50}>Últimos 50</option>
             <option value={100}>Últimos 100</option>

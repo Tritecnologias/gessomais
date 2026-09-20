@@ -40,14 +40,14 @@ export default function Depoimentos() {
           {/* Arrows */}
           <button
             onClick={prev}
-            className="hidden md:flex absolute -left-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border items-center justify-center transition-all duration-300 hover:bg-[#D4A74B] hover:border-[#D4A74B] group"
+            className="hidden md:flex absolute -left-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border items-center justify-center transition-all duration-300 hover:bg-[#012D76] hover:border-[#012D76] group"
             style={{ borderColor: '#E5E2DE' }}
           >
             <ChevronLeft className="w-5 h-5 text-[#6B6B6B] group-hover:text-white transition-colors" />
           </button>
           <button
             onClick={next}
-            className="hidden md:flex absolute -right-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border items-center justify-center transition-all duration-300 hover:bg-[#D4A74B] hover:border-[#D4A74B] group"
+            className="hidden md:flex absolute -right-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border items-center justify-center transition-all duration-300 hover:bg-[#012D76] hover:border-[#012D76] group"
             style={{ borderColor: '#E5E2DE' }}
           >
             <ChevronRight className="w-5 h-5 text-[#6B6B6B] group-hover:text-white transition-colors" />
@@ -70,7 +70,7 @@ export default function Depoimentos() {
                     {t.image ? (
                       <img src={t.image} alt={t.name} loading="lazy" className="w-full h-full object-cover" />
                     ) : (
-                      <div className="w-full h-full bg-[#D4A74B] flex items-center justify-center text-xl font-bold text-[#1A1A1A]">
+                      <div className="w-full h-full bg-[#012D76] flex items-center justify-center text-xl font-bold text-white">
                         {t.name.charAt(0)}
                       </div>
                     )}
@@ -82,8 +82,8 @@ export default function Depoimentos() {
                       <Star
                         key={j}
                         className="w-4 h-4"
-                        style={{ color: j < t.rating ? '#D4A74B' : '#E5E2DE' }}
-                        fill={j < t.rating ? '#D4A74B' : 'transparent'}
+                        style={{ color: j < t.rating ? '#F59E0B' : '#E5E2DE' }}
+                        fill={j < t.rating ? '#F59E0B' : 'transparent'}
                       />
                     ))}
                   </div>
@@ -111,8 +111,8 @@ export default function Depoimentos() {
                 onClick={() => setActive(i)}
                 className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                 style={{
-                  backgroundColor: i === active ? '#D4A74B' : 'transparent',
-                  border: i === active ? '1px solid #D4A74B' : '1px solid #E5E2DE',
+                  backgroundColor: i === active ? '#012D76' : 'transparent',
+                  border: i === active ? '1px solid #012D76' : '1px solid #E5E2DE',
                 }}
               />
             ))}

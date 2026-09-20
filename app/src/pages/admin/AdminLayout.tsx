@@ -144,8 +144,8 @@ function NotificationBell() {
                 className="w-full text-left px-4 py-3 hover:bg-[#F5F3F0] transition-colors border-b border-[#F5F3F0]"
               >
                 <div className="flex items-center gap-2 mb-0.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D4A74B] shrink-0" />
-                  <span className="text-xs font-semibold text-[#D4A74B]">Candidatura</span>
+                  <span className="w-2 h-2 rounded-full bg-[#012D76] shrink-0" />
+                  <span className="text-xs font-semibold text-[#012D76]">Candidatura</span>
                 </div>
                 <p className="text-sm text-[#1A1A1A] font-medium truncate">{a.name}</p>
                 <p className="text-xs text-[#6B6B6B] truncate">{a.area}</p>
@@ -188,7 +188,7 @@ function NotificationBell() {
           <div className="px-4 py-2 border-t border-[#E5E2DE]">
             <button
               onClick={() => { navigate("/admin/leads"); setOpen(false); }}
-              className="text-xs text-[#D4A74B] font-medium hover:underline"
+              className="text-xs text-[#012D76] font-semibold hover:underline"
             >
               Ver todos os leads →
             </button>
@@ -228,7 +228,7 @@ export default function AdminLayout() {
               <div className="bg-white/95 px-2 py-1 rounded-lg shadow-sm">
                 <img src="/images/vsn2-crop.png" alt="Logo" className="h-7 w-auto object-contain" />
               </div>
-              <span className="font-display text-sm font-bold text-white tracking-wide group-hover:text-[#D4A74B] transition-colors">
+              <span className="font-display text-sm font-bold text-white tracking-wide group-hover:text-[#93C5FD] transition-colors">
                 VSN ADMIN
               </span>
             </Link>
@@ -254,7 +254,7 @@ export default function AdminLayout() {
                 className="w-9 h-9 rounded-full object-cover"
               />
             ) : (
-              <div className="w-9 h-9 rounded-full bg-[#D4A74B] flex items-center justify-center text-sm font-bold text-[#1A1A1A]">
+              <div className="w-9 h-9 rounded-full bg-[#012D76] flex items-center justify-center text-sm font-bold text-white">
                 {user?.name?.charAt(0) || "A"}
               </div>
             )}
@@ -288,7 +288,7 @@ export default function AdminLayout() {
                           onClick={() => setSidebarOpen(false)}
                           className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                             isActive
-                              ? "bg-[#D4A74B] text-[#1A1A1A]"
+                              ? "bg-[#012D76] text-white shadow-sm"
                               : "text-white/70 hover:bg-white/10 hover:text-white"
                           }`}
                         >

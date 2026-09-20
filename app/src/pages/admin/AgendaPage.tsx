@@ -141,7 +141,7 @@ export default function AgendaPage() {
         <h2 className="text-2xl font-display font-bold text-[#1A1A1A]">Agenda de Visitas</h2>
         <button
           onClick={openCreate}
-          className="flex items-center gap-2 bg-[#D4A74B] text-[#1A1A1A] font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#c49640] transition-colors"
+          className="flex items-center gap-2 bg-[#012D76] text-white font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#023892] transition-colors"
         >
           <Plus className="w-4 h-4" /> Nova Visita
         </button>
@@ -170,7 +170,7 @@ export default function AgendaPage() {
         <div className="bg-white rounded-xl border border-[#E5E2DE] p-12 text-center">
           <CalendarDays className="w-10 h-10 text-[#C4B99A] mx-auto mb-3" />
           <p className="text-[#6B6B6B]">Nenhuma visita encontrada.</p>
-          <button onClick={openCreate} className="mt-4 text-sm text-[#D4A74B] font-medium hover:underline">
+          <button onClick={openCreate} className="mt-4 text-sm text-[#012D76] font-semibold hover:underline">
             Agendar primeira visita
           </button>
         </div>
@@ -308,7 +308,7 @@ export default function AgendaPage() {
                   value={form.title}
                   onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
                   placeholder="Ex: Visita técnica — Residência Silva"
-                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                 />
               </div>
               <div>
@@ -318,7 +318,7 @@ export default function AgendaPage() {
                   type="datetime-local"
                   value={form.scheduledAt}
                   onChange={(e) => setForm((f) => ({ ...f, scheduledAt: e.target.value }))}
-                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -328,7 +328,7 @@ export default function AgendaPage() {
                     value={form.address}
                     onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))}
                     placeholder="Rua, número, bairro"
-                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                   />
                 </div>
                 <div>
@@ -337,7 +337,7 @@ export default function AgendaPage() {
                     value={form.contact}
                     onChange={(e) => setForm((f) => ({ ...f, contact: e.target.value }))}
                     placeholder="(11) 99999-0000"
-                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                   />
                 </div>
               </div>
@@ -347,7 +347,7 @@ export default function AgendaPage() {
                   <select
                     value={form.status}
                     onChange={(e) => setForm((f) => ({ ...f, status: e.target.value as Status }))}
-                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B]"
+                    className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76]"
                   >
                     <option value="agendada">Agendada</option>
                     <option value="realizada">Realizada</option>
@@ -362,7 +362,7 @@ export default function AgendaPage() {
                   value={form.notes}
                   onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
                   placeholder="Detalhes adicionais..."
-                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#D4A74B] resize-none"
+                  className="w-full border border-[#E5E2DE] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012D76] resize-none"
                 />
               </div>
               <div className="flex gap-3 pt-2">
@@ -376,7 +376,7 @@ export default function AgendaPage() {
                 <button
                   type="submit"
                   disabled={createMut.isPending || updateMut.isPending}
-                  className="flex-1 bg-[#D4A74B] text-[#1A1A1A] font-semibold text-sm py-2.5 rounded-lg hover:bg-[#c49640] transition-colors disabled:opacity-50"
+                  className="flex-1 bg-[#012D76] text-white font-semibold text-sm py-2.5 rounded-lg hover:bg-[#023892] transition-colors disabled:opacity-50"
                 >
                   {createMut.isPending || updateMut.isPending ? "Salvando..." : modal.editing ? "Atualizar" : "Agendar"}
                 </button>

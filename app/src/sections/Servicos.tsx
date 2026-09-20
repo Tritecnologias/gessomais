@@ -88,7 +88,7 @@ export default function Servicos() {
                       e.preventDefault();
                       document.querySelector('#catalogo')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="inline-flex items-center text-sm font-semibold text-[#D4A74B] hover:underline transition-all"
+                    className="inline-flex items-center text-sm font-semibold text-[#012D76] hover:underline transition-all"
                   >
                     Saiba mais
                     <ArrowRight className="ml-1 w-4 h-4" />

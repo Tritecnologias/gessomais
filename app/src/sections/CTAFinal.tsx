@@ -35,9 +35,9 @@ export default function CTAFinal() {
           <span
             className="inline-block text-xs font-medium uppercase tracking-[0.15em] px-5 py-2 rounded-full"
             style={{
-              backgroundColor: 'rgba(212, 167, 75, 0.15)',
-              color: '#D4A74B',
-              border: '1px solid rgba(212, 167, 75, 0.3)',
+              backgroundColor: 'rgba(1, 45, 118, 0.5)',
+              color: '#93C5FD',
+              border: '1px solid rgba(147, 197, 253, 0.3)',
             }}
           >
             {badge}
@@ -71,15 +71,15 @@ export default function CTAFinal() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-10 py-5 text-base font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center justify-center px-10 py-5 text-base font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-[#023892]"
             style={{
-              backgroundColor: '#D4A74B',
-              color: '#1A1A1A',
-              boxShadow: '0 8px 30px rgba(212,167,75,0.3)',
+              backgroundColor: '#012D76',
+              color: '#FFFFFF',
+              boxShadow: '0 8px 30px rgba(1, 45, 118, 0.5)',
             }}
           >
             Pedir Orçamento Agora
-            <MessageCircle className="ml-3 w-5 h-5" />
+            <MessageCircle className="ml-3 w-5 h-5 text-[#25D366]" />
           </a>
         </div>
 

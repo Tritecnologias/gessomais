@@ -138,7 +138,7 @@ export default function JobOpeningsPage() {
               value={editing.title}
               onChange={(e) => setEditing({ ...editing, title: e.target.value })}
               placeholder="Ex: Gesseiro Especializado"
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
 
@@ -148,7 +148,7 @@ export default function JobOpeningsPage() {
               <select
                 value={editing.type}
                 onChange={(e) => setEditing({ ...editing, type: e.target.value })}
-                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
               >
                 {JOB_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
               </select>
@@ -160,7 +160,7 @@ export default function JobOpeningsPage() {
                 value={editing.location}
                 onChange={(e) => setEditing({ ...editing, location: e.target.value })}
                 placeholder="São Paulo, SP"
-                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
               />
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function JobOpeningsPage() {
               onChange={(e) => setEditing({ ...editing, description: e.target.value })}
               rows={3}
               placeholder="Descreva as responsabilidades e o dia a dia na vaga..."
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
 
@@ -185,7 +185,7 @@ export default function JobOpeningsPage() {
               onChange={(e) => setEditing({ ...editing, requirements: e.target.value })}
               rows={4}
               placeholder={"Experiência com gesso\nCNH categoria B\nDisponibilidade imediata"}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 font-mono"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50 font-mono"
             />
           </div>
 
@@ -195,7 +195,7 @@ export default function JobOpeningsPage() {
               type="number"
               value={editing.sortOrder}
               onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
 
@@ -205,7 +205,7 @@ export default function JobOpeningsPage() {
               id="jobActive"
               checked={editing.active}
               onChange={(e) => setEditing({ ...editing, active: e.target.checked })}
-              className="w-4 h-4 rounded border-[#E5E2DE] text-[#D4A74B]"
+              className="w-4 h-4 rounded border-[#E5E2DE] text-[#012D76] accent-[#012D76]"
             />
             <label htmlFor="jobActive" className="text-sm text-[#1A1A1A]">Vaga ativa (visível no site)</label>
           </div>

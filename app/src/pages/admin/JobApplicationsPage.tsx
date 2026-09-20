@@ -67,7 +67,7 @@ export default function JobApplicationsPage() {
           <p className="text-sm text-[#6B6B6B] mt-0.5">
             {data?.length ?? 0} candidato{data?.length !== 1 ? 's' : ''} cadastrado{data?.length !== 1 ? 's' : ''}
             {unread > 0 && (
-              <span className="ml-2 inline-block bg-[#D4A74B] text-[#1A1A1A] text-xs font-bold px-2 py-0.5 rounded-full">
+              <span className="ml-2 inline-block bg-[#012D76] text-white text-xs font-bold px-2 py-0.5 rounded-full">
                 {unread} novo{unread !== 1 ? 's' : ''}
               </span>
             )}
@@ -81,7 +81,7 @@ export default function JobApplicationsPage() {
             <select
               value={filterArea}
               onChange={(e) => setFilterArea(e.target.value)}
-              className="text-sm px-3 py-2 rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 bg-white"
+              className="text-sm px-3 py-2 rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50 bg-white"
             >
               <option value="">Todas as áreas</option>
               {areas.map((a) => <option key={a} value={a}>{a}</option>)}
@@ -113,13 +113,13 @@ export default function JobApplicationsPage() {
           {filtered?.map((app) => (
             <div
               key={app.id}
-              className={`bg-white rounded-xl border p-5 flex items-center gap-4 hover:shadow-sm transition-shadow cursor-pointer ${!app.read ? 'border-[#D4A74B]/50 bg-amber-50/30' : 'border-[#E5E2DE]'}`}
+              className={`bg-white rounded-xl border p-5 flex items-center gap-4 hover:shadow-sm transition-shadow cursor-pointer ${!app.read ? 'border-[#012D76]/40 bg-blue-50/20' : 'border-[#E5E2DE]'}`}
               onClick={() => openDetail(app as Application)}
             >
               {/* Avatar */}
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0"
-                style={{ backgroundColor: 'rgba(212,167,75,0.15)', color: '#D4A74B' }}
+                style={{ backgroundColor: 'rgba(1,45,118,0.1)', color: '#012D76' }}
               >
                 {app.name.charAt(0).toUpperCase()}
               </div>
@@ -129,7 +129,7 @@ export default function JobApplicationsPage() {
                 <div className="flex items-center gap-2">
                   <p className="font-medium text-[#1A1A1A] truncate">{app.name}</p>
                   {!app.read && (
-                    <span className="shrink-0 w-2 h-2 rounded-full bg-[#D4A74B]" />
+                    <span className="shrink-0 w-2 h-2 rounded-full bg-[#012D76]" />
                   )}
                 </div>
                 <p className="text-xs text-[#6B6B6B] mt-0.5 truncate">
@@ -178,7 +178,7 @@ export default function JobApplicationsPage() {
             <div className="flex items-center gap-4">
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold"
-                style={{ backgroundColor: 'rgba(212,167,75,0.15)', color: '#D4A74B' }}
+                style={{ backgroundColor: 'rgba(1,45,118,0.1)', color: '#012D76' }}
               >
                 {selected.name.charAt(0).toUpperCase()}
               </div>
@@ -190,22 +190,22 @@ export default function JobApplicationsPage() {
 
             {/* Contato */}
             <div className="grid grid-cols-1 gap-2">
-              <a href={`mailto:${selected.email}`} className="flex items-center gap-2.5 text-sm text-[#1A1A1A] hover:text-[#D4A74B] transition-colors">
-                <Mail className="w-4 h-4 text-[#D4A74B]" /> {selected.email}
+              <a href={`mailto:${selected.email}`} className="flex items-center gap-2.5 text-sm text-[#1A1A1A] hover:text-[#012D76] transition-colors">
+                <Mail className="w-4 h-4 text-[#012D76]" /> {selected.email}
               </a>
-              <a href={`https://wa.me/${selected.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-sm text-[#1A1A1A] hover:text-[#D4A74B] transition-colors">
-                <Phone className="w-4 h-4 text-[#D4A74B]" /> {selected.phone}
+              <a href={`https://wa.me/${selected.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-sm text-[#1A1A1A] hover:text-[#012D76] transition-colors">
+                <Phone className="w-4 h-4 text-[#012D76]" /> {selected.phone}
               </a>
             </div>
 
             {/* Detalhes profissionais */}
             <div className="bg-[#F5F3F0] rounded-xl p-4 space-y-3">
               <div className="flex items-center gap-2 text-sm text-[#1A1A1A]">
-                <MapPin className="w-4 h-4 text-[#D4A74B]" />
+                <MapPin className="w-4 h-4 text-[#012D76]" />
                 <span className="font-medium">Experiência:</span> {selected.experience}
               </div>
               <div className="flex items-center gap-2 text-sm text-[#1A1A1A]">
-                <Calendar className="w-4 h-4 text-[#D4A74B]" />
+                <Calendar className="w-4 h-4 text-[#012D76]" />
                 <span className="font-medium">Disponibilidade:</span> {selected.availability}
               </div>
               <div className="flex items-center gap-4 text-sm">

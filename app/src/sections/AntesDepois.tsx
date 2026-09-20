@@ -94,8 +94,8 @@ export default function AntesDepois() {
                 {/* Badge */}
                 <div className="absolute top-4 right-4">
                   <span
-                    className="text-xs font-medium uppercase tracking-[0.1em] px-3 py-1.5 rounded-full"
-                    style={{ backgroundColor: '#D4A74B', color: '#1A1A1A' }}
+                    className="text-xs font-semibold uppercase tracking-[0.1em] px-3 py-1.5 rounded-full shadow-sm"
+                    style={{ backgroundColor: '#012D76', color: '#FFFFFF' }}
                   >
                     {card.badge}
                   </span>
@@ -119,7 +119,7 @@ export default function AntesDepois() {
               <span
                 ref={stat1Ref}
                 className="font-display font-bold text-5xl md:text-6xl block"
-                style={{ color: '#D4A74B' }}
+                style={{ color: '#012D76' }}
               >
                 0
               </span>
@@ -131,7 +131,7 @@ export default function AntesDepois() {
               <span
                 ref={stat2Ref}
                 className="font-display font-bold text-5xl md:text-6xl block"
-                style={{ color: '#D4A74B' }}
+                style={{ color: '#012D76' }}
               >
                 0
               </span>
@@ -143,7 +143,7 @@ export default function AntesDepois() {
               <span
                 ref={stat3Ref}
                 className="font-display font-bold text-5xl md:text-6xl block"
-                style={{ color: '#D4A74B' }}
+                style={{ color: '#012D76' }}
               >
                 0
               </span>

@@ -180,7 +180,7 @@ export default function ConfigPage() {
                         onChange={(e) => handleChange(cfg.key, e.target.value)}
                         placeholder={cfg.placeholder}
                         rows={3}
-                        className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 mb-3"
+                        className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50 mb-3"
                       />
                     ) : (
                       <input
@@ -188,7 +188,7 @@ export default function ConfigPage() {
                         value={value}
                         onChange={(e) => handleChange(cfg.key, e.target.value)}
                         placeholder={cfg.placeholder}
-                        className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 mb-3"
+                        className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50 mb-3"
                       />
                     )}
 
@@ -211,10 +211,10 @@ export default function ConfigPage() {
                       <button
                         onClick={() => handleSave(cfg.key)}
                         disabled={setMutation.isPending}
-                        className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-200 shrink-0"
+                        className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-200 shrink-0 text-white"
                         style={{
-                          backgroundColor: isSaved ? "#22C55E" : "#D4A74B",
-                          color: isSaved ? "#fff" : "#1A1A1A",
+                          backgroundColor: isSaved ? "#22C55E" : "#012D76",
+                          color: "#FFFFFF",
                         }}
                       >
                         {isSaved ? (

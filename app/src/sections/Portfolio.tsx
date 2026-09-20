@@ -19,8 +19,8 @@ export default function Portfolio() {
         {/* Header */}
         <div className="text-center mb-10">
           <div className="animate-item mb-4">
-            <span className="inline-block text-xs font-medium uppercase tracking-[0.15em] px-4 py-1.5 rounded-full"
-              style={{ backgroundColor: 'rgba(212,167,75,0.12)', color: '#D4A74B', border: '1px solid rgba(212,167,75,0.3)' }}>
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] px-4 py-1.5 rounded-full"
+              style={{ backgroundColor: 'rgba(1, 45, 118, 0.08)', color: '#012D76', border: '1px solid rgba(1, 45, 118, 0.2)' }}>
               Nosso Portfólio
             </span>
           </div>
@@ -38,11 +38,11 @@ export default function Portfolio() {
           <div className="animate-item flex flex-wrap justify-center gap-2 mb-10">
             {categories.map((cat) => (
               <button key={cat} onClick={() => setActiveCategory(cat)}
-                className="text-xs font-medium px-4 py-2 rounded-full border transition-all duration-200"
+                className="text-xs font-semibold px-4 py-2 rounded-full border transition-all duration-200"
                 style={{
-                  backgroundColor: activeCategory === cat ? '#D4A74B' : 'transparent',
-                  color: activeCategory === cat ? '#1A1A1A' : '#6B6B6B',
-                  borderColor: activeCategory === cat ? '#D4A74B' : '#E5E2DE',
+                  backgroundColor: activeCategory === cat ? '#012D76' : 'transparent',
+                  color: activeCategory === cat ? '#FFFFFF' : '#64748B',
+                  borderColor: activeCategory === cat ? '#012D76' : '#E2E8F0',
                 }}>
                 {cat}
               </button>
@@ -64,8 +64,8 @@ export default function Portfolio() {
                 <img src={item.image} alt={item.title} loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <span className="text-xs font-medium uppercase tracking-wider px-2 py-1 rounded-full mb-2 w-fit"
-                    style={{ backgroundColor: 'rgba(212,167,75,0.8)', color: '#1A1A1A' }}>
+                  <span className="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full mb-2 w-fit"
+                    style={{ backgroundColor: 'rgba(1, 45, 118, 0.9)', color: '#FFFFFF' }}>
                     {item.category}
                   </span>
                   <p className="text-white font-semibold text-sm leading-tight">{item.title}</p>

@@ -87,7 +87,7 @@ export default function LeadsPage() {
           <p className="text-sm text-[#6B6B6B] mt-0.5">
             {data?.length ?? 0} lead{data?.length !== 1 ? "s" : ""} no total
             {unread > 0 && (
-              <span className="ml-2 inline-block bg-[#D4A74B] text-[#1A1A1A] text-xs font-bold px-2 py-0.5 rounded-full">
+              <span className="ml-2 inline-block bg-[#012D76] text-white text-xs font-bold px-2 py-0.5 rounded-full">
                 {unread} novo{unread !== 1 ? "s" : ""}
               </span>
             )}
@@ -96,7 +96,7 @@ export default function LeadsPage() {
         <div className="flex items-center gap-2">
           <Filter className="w-4 h-4 text-[#6B6B6B]" />
           <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}
-            className="text-sm px-3 py-2 rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 bg-white">
+            className="text-sm px-3 py-2 rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50 bg-white">
             <option value="">Todos os status</option>
             {STATUSES.map((s) => <option key={s.key} value={s.key}>{s.label}</option>)}
           </select>
@@ -107,7 +107,7 @@ export default function LeadsPage() {
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
         {statusCounts.map((s) => (
           <button key={s.key} onClick={() => setFilterStatus(filterStatus === s.key ? "" : s.key)}
-            className={`rounded-xl border p-3 text-center transition-all ${filterStatus === s.key ? 'border-[#D4A74B] shadow-sm' : 'border-[#E5E2DE] bg-white'}`}>
+            className={`rounded-xl border p-3 text-center transition-all ${filterStatus === s.key ? 'border-[#012D76] shadow-sm' : 'border-[#E5E2DE] bg-white'}`}>
             <p className="text-2xl font-bold text-[#1A1A1A]">{s.count}</p>
             <p className="text-xs mt-1 text-[#6B6B6B]">{s.label}</p>
           </button>
@@ -131,16 +131,16 @@ export default function LeadsPage() {
             const st = STATUSES.find((s) => s.key === lead.status) ?? STATUSES[0];
             return (
               <div key={lead.id}
-                className={`bg-white rounded-xl border p-4 flex items-center gap-4 hover:shadow-sm transition-shadow cursor-pointer ${!lead.read ? 'border-[#D4A74B]/50 bg-amber-50/20' : 'border-[#E5E2DE]'}`}
+                className={`bg-white rounded-xl border p-4 flex items-center gap-4 hover:shadow-sm transition-shadow cursor-pointer ${!lead.read ? 'border-[#012D76]/40 bg-blue-50/20' : 'border-[#E5E2DE]'}`}
                 onClick={() => openDetail(lead as Lead)}>
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0"
-                  style={{ backgroundColor: 'rgba(212,167,75,0.15)', color: '#D4A74B' }}>
+                  style={{ backgroundColor: 'rgba(1,45,118,0.1)', color: '#012D76' }}>
                   {lead.name.charAt(0).toUpperCase()}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <p className="font-medium text-[#1A1A1A] truncate">{lead.name}</p>
-                    {!lead.read && <span className="w-2 h-2 rounded-full bg-[#D4A74B] shrink-0" />}
+                    {!lead.read && <span className="w-2 h-2 rounded-full bg-[#012D76] shrink-0" />}
                   </div>
                   <p className="text-xs text-[#6B6B6B] mt-0.5 truncate">
                     {lead.phone}{lead.service ? ` · ${lead.service}` : ""}
@@ -174,7 +174,7 @@ export default function LeadsPage() {
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold"
-                  style={{ backgroundColor: 'rgba(212,167,75,0.15)', color: '#D4A74B' }}>
+                  style={{ backgroundColor: 'rgba(1,45,118,0.1)', color: '#012D76' }}>
                   {selected.name.charAt(0).toUpperCase()}
                 </div>
                 <div>
@@ -187,18 +187,18 @@ export default function LeadsPage() {
             {/* Contato */}
             <div className="space-y-2">
               <a href={`https://wa.me/${selected.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-sm text-[#1A1A1A] hover:text-[#D4A74B] transition-colors">
-                <Phone className="w-4 h-4 text-[#D4A74B]" /> {selected.phone}
+                className="flex items-center gap-2.5 text-sm text-[#1A1A1A] hover:text-[#012D76] transition-colors">
+                <Phone className="w-4 h-4 text-[#012D76]" /> {selected.phone}
               </a>
               {selected.email && (
                 <a href={`mailto:${selected.email}`}
-                  className="flex items-center gap-2.5 text-sm text-[#1A1A1A] hover:text-[#D4A74B] transition-colors">
-                  <Mail className="w-4 h-4 text-[#D4A74B]" /> {selected.email}
+                  className="flex items-center gap-2.5 text-sm text-[#1A1A1A] hover:text-[#012D76] transition-colors">
+                  <Mail className="w-4 h-4 text-[#012D76]" /> {selected.email}
                 </a>
               )}
               {selected.service && (
                 <div className="flex items-center gap-2.5 text-sm text-[#1A1A1A]">
-                  <Wrench className="w-4 h-4 text-[#D4A74B]" /> {selected.service}
+                  <Wrench className="w-4 h-4 text-[#012D76]" /> {selected.service}
                 </div>
               )}
             </div>
@@ -218,7 +218,7 @@ export default function LeadsPage() {
                 {STATUSES.map((s) => (
                   <button key={s.key}
                     onClick={() => handleStatusChange(selected.id, s.key)}
-                    className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-all ${selected.status === s.key ? s.color + ' border-transparent' : 'border-[#E5E2DE] text-[#6B6B6B] hover:border-[#D4A74B]'}`}>
+                    className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-all ${selected.status === s.key ? s.color + ' border-transparent' : 'border-[#E5E2DE] text-[#6B6B6B] hover:border-[#012D76]'}`}>
                     {s.label}
                   </button>
                 ))}
@@ -233,7 +233,7 @@ export default function LeadsPage() {
                 </label>
                 <input type="number" value={value} onChange={(e) => setValue(e.target.value)}
                   placeholder="0,00"
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
               </div>
               <div>
                 <label className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#6B6B6B] mb-1">
@@ -241,11 +241,11 @@ export default function LeadsPage() {
                 </label>
                 <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3}
                   placeholder="Anotações sobre o cliente, visita, combinados..."
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 resize-none" />
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50 resize-none" />
               </div>
               <button onClick={() => updateNotesMutation.mutate({ id: selected.id, notes, value })}
                 disabled={updateNotesMutation.isPending}
-                className="w-full text-sm font-medium py-2.5 rounded-lg border border-[#D4A74B] text-[#D4A74B] hover:bg-[#D4A74B] hover:text-[#1A1A1A] transition-all disabled:opacity-50">
+                className="w-full text-sm font-semibold py-2.5 rounded-lg border border-[#012D76] text-[#012D76] hover:bg-[#012D76] hover:text-white transition-all disabled:opacity-50">
                 {updateNotesMutation.isPending ? "Salvando..." : "Salvar Notas"}
               </button>
             </div>

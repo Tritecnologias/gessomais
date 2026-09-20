@@ -84,36 +84,36 @@ export default function PortfolioPage() {
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Título *</label>
             <input type="text" value={editing.title} onChange={(e) => setEditing({ ...editing, title: e.target.value })}
-              placeholder="Ex: Sanca LED Sala de Estar" className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              placeholder="Ex: Sanca LED Sala de Estar" className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">URL da Imagem *</label>
             <input type="url" value={editing.image} onChange={(e) => setEditing({ ...editing, image: e.target.value })}
-              placeholder="https://..." className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              placeholder="https://..." className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
             {editing.image && <img src={editing.image} alt="" className="mt-2 h-28 w-full object-cover rounded-lg border border-[#E5E2DE]" onError={(e) => (e.currentTarget.style.display = 'none')} />}
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Categoria</label>
               <select value={editing.category} onChange={(e) => setEditing({ ...editing, category: e.target.value })}
-                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50">
+                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50">
                 {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Ordem</label>
               <input type="number" value={editing.sortOrder} onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })}
-                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Descrição</label>
             <textarea value={editing.description} onChange={(e) => setEditing({ ...editing, description: e.target.value })}
               rows={2} placeholder="Breve descrição do projeto..."
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div className="flex items-center gap-3">
-            <input type="checkbox" id="portActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded accent-[#D4A74B]" />
+            <input type="checkbox" id="portActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded accent-[#012D76]" />
             <label htmlFor="portActive" className="text-sm text-[#1A1A1A]">Visível no site</label>
           </div>
           <div className="flex justify-end gap-3 pt-2">

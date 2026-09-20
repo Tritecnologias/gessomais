@@ -113,7 +113,7 @@ export default function TrabalheConosco() {
     value: form[key] as string,
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
       setForm({ ...form, [key]: e.target.value }),
-    className: `w-full px-3 py-2.5 text-sm rounded-lg border ${errors[key] ? 'border-red-400' : 'border-[#E5E2DE]'} focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50`,
+    className: `w-full px-3 py-2.5 text-sm rounded-lg border ${errors[key] ? 'border-red-400' : 'border-[#E5E2DE]'} focus:outline-none focus:ring-2 focus:ring-[#012D76]/50`,
   });
 
   return (
@@ -121,23 +121,22 @@ export default function TrabalheConosco() {
       id="trabalhe-conosco"
       ref={sectionRef}
       className="section-padding"
-      style={{ backgroundColor: '#F5F3F0' }}
+      style={{ backgroundColor: '#F8FAFC' }}
     >
       <div className="container-main">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="animate-item mb-4">
             <span
-              className="inline-block text-xs font-medium uppercase tracking-[0.15em] px-4 py-1.5 rounded-full"
-              style={{ backgroundColor: 'rgba(212,167,75,0.12)', color: '#D4A74B', border: '1px solid rgba(212,167,75,0.3)' }}
+              className="inline-block text-xs font-semibold uppercase tracking-[0.15em] px-4 py-1.5 rounded-full"
+              style={{ backgroundColor: 'rgba(1, 45, 118, 0.08)', color: '#012D76', border: '1px solid rgba(1, 45, 118, 0.2)' }}
             >
               Faça Parte do Time
             </span>
           </div>
           <h2
             className="animate-item font-display font-semibold mb-4"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#1A1A1A', lineHeight: 1.2, letterSpacing: '-0.02em' }}
-          >
+            style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#1A1A1A', lineHeight: 1.2, letterSpacing: '-0.02em' }}>
             Trabalhe Conosco
           </h2>
           <p className="animate-item text-lg max-w-[560px] mx-auto" style={{ color: '#6B6B6B' }}>
@@ -176,14 +175,14 @@ export default function TrabalheConosco() {
                       <ul className="space-y-1">
                         {job.requirements.split('\n').filter(Boolean).map((req, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#6B6B6B' }}>
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#D4A74B] shrink-0" />
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#012D76] shrink-0" />
                             {req.replace(/^[-•*]\s*/, '')}
                           </li>
                         ))}
                       </ul>
                     </div>
                   )}
-                  <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-lg transition-all duration-200 hover:scale-[1.02] mt-auto" style={{ backgroundColor: '#D4A74B', color: '#1A1A1A' }}>
+                  <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-lg transition-all duration-200 hover:scale-[1.02] shadow-sm mt-auto" style={{ backgroundColor: '#012D76', color: '#FFFFFF' }}>
                     Quero Me Candidatar <ChevronRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -194,8 +193,8 @@ export default function TrabalheConosco() {
           /* Sem vagas abertas */
           <div className="animate-item max-w-[600px] mx-auto text-center mb-16">
             <div className="bg-white rounded-2xl border border-[#E5E2DE] px-8 py-10">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: 'rgba(212,167,75,0.12)' }}>
-                <Briefcase className="w-8 h-8" style={{ color: '#D4A74B' }} />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: 'rgba(1, 45, 118, 0.08)' }}>
+                <Briefcase className="w-8 h-8" style={{ color: '#012D76' }} />
               </div>
               <h3 className="text-xl font-semibold text-[#1A1A1A] mb-3">Nenhuma vaga aberta no momento</h3>
               <p className="text-sm leading-relaxed" style={{ color: '#6B6B6B' }}>
@@ -218,8 +217,8 @@ export default function TrabalheConosco() {
                 </p>
                 <button
                   onClick={() => setSent(false)}
-                  className="mt-6 text-sm font-medium underline"
-                  style={{ color: '#D4A74B' }}
+                  className="mt-6 text-sm font-semibold underline"
+                  style={{ color: '#012D76' }}
                 >
                   Enviar outro cadastro
                 </button>
@@ -292,7 +291,7 @@ export default function TrabalheConosco() {
                         type="checkbox"
                         checked={form.hasCnh}
                         onChange={(e) => setForm({ ...form, hasCnh: e.target.checked })}
-                        className="w-4 h-4 rounded border-[#E5E2DE] accent-[#D4A74B]"
+                        className="w-4 h-4 rounded border-[#E5E2DE] accent-[#012D76]"
                       />
                       <span className="text-sm text-[#1A1A1A]">Possuo CNH</span>
                     </label>
@@ -301,7 +300,7 @@ export default function TrabalheConosco() {
                         type="checkbox"
                         checked={form.hasVehicle}
                         onChange={(e) => setForm({ ...form, hasVehicle: e.target.checked })}
-                        className="w-4 h-4 rounded border-[#E5E2DE] accent-[#D4A74B]"
+                        className="w-4 h-4 rounded border-[#E5E2DE] accent-[#012D76]"
                       />
                       <span className="text-sm text-[#1A1A1A]">Possuo veículo próprio</span>
                     </label>
@@ -316,15 +315,15 @@ export default function TrabalheConosco() {
                       {...field('message')}
                       rows={3}
                       placeholder="Conte um pouco sobre você, suas habilidades e motivações..."
-                      className={`w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 resize-none`}
+                      className={`w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50 resize-none`}
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={submitMutation.isPending}
-                    className="w-full inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-lg transition-all duration-200 disabled:opacity-60"
-                    style={{ backgroundColor: '#D4A74B', color: '#1A1A1A' }}
+                    className="w-full inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-lg transition-all duration-200 disabled:opacity-60 shadow-md hover:shadow-lg hover:brightness-105"
+                    style={{ backgroundColor: '#012D76', color: '#FFFFFF' }}
                   >
                     {submitMutation.isPending ? 'Enviando...' : (
                       <><Send className="w-4 h-4" /> Enviar Meu Currículo</>

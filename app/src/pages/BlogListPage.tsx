@@ -44,9 +44,9 @@ export default function BlogListPage() {
                     )}
                     <div className="p-5 flex flex-col justify-center">
                       <p className="text-xs text-[#6B6B6B] mb-1">{formatDate(post.publishedAt)}</p>
-                      <h2 className="font-semibold text-[#1A1A1A] mb-1 group-hover:text-[#D4A74B] transition-colors">{post.title}</h2>
+                      <h2 className="font-semibold text-[#1A1A1A] mb-1 group-hover:text-[#012D76] transition-colors">{post.title}</h2>
                       {post.excerpt && <p className="text-sm text-[#6B6B6B] line-clamp-2">{post.excerpt}</p>}
-                      <span className="inline-flex items-center gap-1 text-xs font-medium mt-2" style={{ color: '#D4A74B' }}>
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold mt-2" style={{ color: '#012D76' }}>
                         Ler artigo <ArrowRight className="w-3 h-3" />
                       </span>
                     </div>

@@ -105,7 +105,7 @@ export default function StockPage() {
           { label: "Zerado",    count: counts.zerado, icon: XCircle,      color: "text-red-500",   bg: "bg-red-50",   key: "zerado" },
         ].map((c) => (
           <button key={c.key} onClick={() => setFilterStatus(filterStatus === c.key ? "" : c.key as any)}
-            className={`rounded-xl border p-4 text-left transition-all ${filterStatus === c.key ? 'border-[#D4A74B] shadow-sm' : 'border-[#E5E2DE] bg-white'}`}>
+            className={`rounded-xl border p-4 text-left transition-all ${filterStatus === c.key ? 'border-[#012D76] shadow-sm' : 'border-[#E5E2DE] bg-white'}`}>
             <div className={`w-9 h-9 rounded-lg ${c.bg} flex items-center justify-center mb-3`}>
               <c.icon className={`w-5 h-5 ${c.color}`} />
             </div>
@@ -121,7 +121,7 @@ export default function StockPage() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B6B6B]" />
           <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder="Buscar produto..."
-            className="w-full pl-9 pr-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            className="w-full pl-9 pr-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
         </div>
       </div>
 
@@ -242,7 +242,7 @@ export default function StockPage() {
                       <Minus className="w-4 h-4" />
                     </button>
                     <input type="number" min="1" value={moveQty} onChange={(e) => setMoveQty(e.target.value)}
-                      className="flex-1 text-center text-lg font-bold px-3 py-2 rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+                      className="flex-1 text-center text-lg font-bold px-3 py-2 rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
                     <button onClick={() => setMoveQty((v) => String(Number(v) + 1))}
                       className="w-10 h-10 rounded-lg border border-[#E5E2DE] flex items-center justify-center hover:bg-[#F5F3F0]">
                       <Plus className="w-4 h-4" />
@@ -257,14 +257,14 @@ export default function StockPage() {
                   </label>
                   <input type="text" value={moveNotes} onChange={(e) => setMoveNotes(e.target.value)}
                     placeholder={moveType === "entrada" ? "Ex: Compra NF 1234, Fornecedor X" : moveType === "saída" ? "Ex: Projeto Rua das Flores 45" : moveType === "perda" ? "Ex: Sacos danificados pela chuva" : "Ex: Correção de contagem"}
-                    className="w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+                    className="w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
                 </div>
 
                 <button
                   onClick={() => moveMutation.mutate({ productId: selected.id, type: moveType, quantity: Number(moveQty), notes: moveNotes || undefined })}
                   disabled={moveMutation.isPending || Number(moveQty) < 1}
                   className="w-full text-sm font-semibold py-3 rounded-lg transition-all disabled:opacity-50"
-                  style={{ backgroundColor: '#D4A74B', color: '#1A1A1A' }}>
+                  style={{ backgroundColor: '#012D76', color: '#FFFFFF' }}>
                   {moveMutation.isPending ? "Registrando..." : `Registrar ${MOVE_TYPES.find((t) => t.key === moveType)?.label}`}
                 </button>
               </div>
@@ -317,7 +317,7 @@ export default function StockPage() {
                       <Minus className="w-4 h-4" />
                     </button>
                     <input type="number" min="0" value={minStockVal} onChange={(e) => setMinStockVal(e.target.value)}
-                      className="flex-1 text-center text-lg font-bold px-3 py-2 rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+                      className="flex-1 text-center text-lg font-bold px-3 py-2 rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
                     <button onClick={() => setMinStockVal((v) => String(Number(v) + 1))}
                       className="w-10 h-10 rounded-lg border border-[#E5E2DE] flex items-center justify-center hover:bg-[#F5F3F0]">
                       <Plus className="w-4 h-4" />
@@ -327,7 +327,7 @@ export default function StockPage() {
                 <button onClick={() => minMutation.mutate({ productId: selected.id, minStock: Number(minStockVal) })}
                   disabled={minMutation.isPending}
                   className="w-full text-sm font-semibold py-3 rounded-lg transition-all disabled:opacity-50"
-                  style={{ backgroundColor: '#D4A74B', color: '#1A1A1A' }}>
+                  style={{ backgroundColor: '#012D76', color: '#FFFFFF' }}>
                   {minMutation.isPending ? "Salvando..." : "Salvar Estoque Mínimo"}
                 </button>
               </div>

@@ -15,8 +15,8 @@ const emptyProduct: Product = {
   oldPrice: null,
   unit: "un",
   badge: null,
-  badgeColor: "#D4A74B",
-  badgeTextColor: "#1A1A1A",
+  badgeColor: "#012D76",
+  badgeTextColor: "#FFFFFF",
   quantity: 0,
   minStock: 0,
   sortOrder: 0,
@@ -124,8 +124,8 @@ export default function ProductsPage() {
               <span
                 className="text-[0.65rem] px-2 py-0.5 rounded-full font-medium"
                 style={{
-                  backgroundColor: item.badgeColor || "#D4A74B",
-                  color: item.badgeTextColor || "#1A1A1A",
+                  backgroundColor: item.badgeColor || "#012D76",
+                  color: item.badgeTextColor || "#FFFFFF",
                 }}
               >
                 {item.badge}
@@ -201,7 +201,7 @@ export default function ProductsPage() {
               onChange={(e) =>
                 setEditing({ ...editing, name: e.target.value })
               }
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
           <div>
@@ -214,7 +214,7 @@ export default function ProductsPage() {
                 setEditing({ ...editing, description: e.target.value })
               }
               rows={3}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -228,7 +228,7 @@ export default function ProductsPage() {
                 onChange={(e) =>
                   setEditing({ ...editing, price: e.target.value })
                 }
-                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
               />
             </div>
             <div>
@@ -241,7 +241,7 @@ export default function ProductsPage() {
                 onChange={(e) =>
                   setEditing({ ...editing, oldPrice: e.target.value })
                 }
-                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
               />
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function ProductsPage() {
                 onChange={(e) =>
                   setEditing({ ...editing, unit: e.target.value })
                 }
-                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
               />
             </div>
             <div>
@@ -269,7 +269,7 @@ export default function ProductsPage() {
                 onChange={(e) =>
                   setEditing({ ...editing, sortOrder: Number(e.target.value) })
                 }
-                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
               />
             </div>
           </div>
@@ -284,7 +284,7 @@ export default function ProductsPage() {
                 setEditing({ ...editing, image: e.target.value })
               }
               placeholder="/images/nome.jpg"
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
           <div>
@@ -297,7 +297,7 @@ export default function ProductsPage() {
               onChange={(e) =>
                 setEditing({ ...editing, badge: e.target.value })
               }
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50"
             />
           </div>
           <div className="flex items-center gap-3">
@@ -308,7 +308,7 @@ export default function ProductsPage() {
               onChange={(e) =>
                 setEditing({ ...editing, active: e.target.checked })
               }
-              className="w-4 h-4 rounded border-[#E5E2DE] text-[#D4A74B] focus:ring-[#D4A74B]"
+              className="w-4 h-4 rounded border-[#E5E2DE] text-[#012D76] accent-[#012D76]"
             />
             <label htmlFor="active" className="text-sm text-[#1A1A1A]">
               Ativo

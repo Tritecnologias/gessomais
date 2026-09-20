@@ -75,28 +75,28 @@ export default function PartnersPage() {
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Nome *</label>
             <input type="text" value={editing.name} onChange={(e) => setEditing({ ...editing, name: e.target.value })}
               placeholder="Ex: Weber Saint-Gobain"
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">URL do Logo *</label>
             <input type="url" value={editing.logo} onChange={(e) => setEditing({ ...editing, logo: e.target.value })}
               placeholder="https://..."
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
             {editing.logo && <img src={editing.logo} alt="" className="mt-2 h-12 object-contain" onError={(e) => (e.currentTarget.style.display = 'none')} />}
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Link do Site <span className="font-normal text-[#6B6B6B]">(opcional)</span></label>
             <input type="url" value={editing.url} onChange={(e) => setEditing({ ...editing, url: e.target.value })}
               placeholder="https://parceiro.com.br"
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Ordem</label>
             <input type="number" value={editing.sortOrder} onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div className="flex items-center gap-3">
-            <input type="checkbox" id="partnerActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded accent-[#D4A74B]" />
+            <input type="checkbox" id="partnerActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded accent-[#012D76]" />
             <label htmlFor="partnerActive" className="text-sm text-[#1A1A1A]">Visível no site</label>
           </div>
           <div className="flex justify-end gap-3 pt-2">

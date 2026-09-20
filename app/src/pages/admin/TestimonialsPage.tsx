@@ -98,7 +98,7 @@ export default function TestimonialsPage() {
       render: (item: Testimonial) => (
         <div className="flex gap-0.5">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className={`w-4 h-4 ${i < item.rating ? "text-[#D4A74B]" : "text-[#E5E2DE]"}`} fill={i < item.rating ? "#D4A74B" : "transparent"} />
+            <Star key={i} className={`w-4 h-4 ${i < item.rating ? "text-[#F59E0B]" : "text-[#E5E2DE]"}`} fill={i < item.rating ? "#F59E0B" : "transparent"} />
           ))}
         </div>
       ),
@@ -122,32 +122,32 @@ export default function TestimonialsPage() {
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Nome</label>
-            <input type="text" value={editing.name} onChange={(e) => setEditing({ ...editing, name: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <input type="text" value={editing.name} onChange={(e) => setEditing({ ...editing, name: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Localização</label>
-            <input type="text" value={editing.location || ""} onChange={(e) => setEditing({ ...editing, location: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <input type="text" value={editing.location || ""} onChange={(e) => setEditing({ ...editing, location: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Depoimento</label>
-            <textarea value={editing.text} onChange={(e) => setEditing({ ...editing, text: e.target.value })} rows={4} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <textarea value={editing.text} onChange={(e) => setEditing({ ...editing, text: e.target.value })} rows={4} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Avaliação (1-5)</label>
-              <input type="number" min={1} max={5} value={editing.rating} onChange={(e) => setEditing({ ...editing, rating: Number(e.target.value) })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              <input type="number" min={1} max={5} value={editing.rating} onChange={(e) => setEditing({ ...editing, rating: Number(e.target.value) })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
             </div>
             <div>
               <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Ordem</label>
-              <input type="number" value={editing.sortOrder} onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              <input type="number" value={editing.sortOrder} onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Imagem (URL)</label>
-            <input type="text" value={editing.image || ""} onChange={(e) => setEditing({ ...editing, image: e.target.value })} placeholder="/images/nome.jpg" className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <input type="text" value={editing.image || ""} onChange={(e) => setEditing({ ...editing, image: e.target.value })} placeholder="/images/nome.jpg" className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div className="flex items-center gap-3">
-            <input type="checkbox" id="tstActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded border-[#E5E2DE] text-[#D4A74B]" />
+            <input type="checkbox" id="tstActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded border-[#E5E2DE] text-[#012D76] accent-[#012D76]" />
             <label htmlFor="tstActive" className="text-sm text-[#1A1A1A]">Ativo</label>
           </div>
           <div className="flex justify-end gap-3 pt-2">

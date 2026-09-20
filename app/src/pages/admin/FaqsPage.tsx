@@ -96,18 +96,18 @@ export default function FaqsPage() {
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Pergunta</label>
-            <input type="text" value={editing.question} onChange={(e) => setEditing({ ...editing, question: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <input type="text" value={editing.question} onChange={(e) => setEditing({ ...editing, question: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Resposta</label>
-            <textarea value={editing.answer} onChange={(e) => setEditing({ ...editing, answer: e.target.value })} rows={5} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <textarea value={editing.answer} onChange={(e) => setEditing({ ...editing, answer: e.target.value })} rows={5} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Ordem</label>
-            <input type="number" value={editing.sortOrder} onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <input type="number" value={editing.sortOrder} onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div className="flex items-center gap-3">
-            <input type="checkbox" id="faqActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded border-[#E5E2DE] text-[#D4A74B]" />
+            <input type="checkbox" id="faqActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded border-[#E5E2DE] text-[#012D76] accent-[#012D76]" />
             <label htmlFor="faqActive" className="text-sm text-[#1A1A1A]">Ativo</label>
           </div>
           <div className="flex justify-end gap-3 pt-2">

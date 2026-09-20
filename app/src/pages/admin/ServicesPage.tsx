@@ -108,30 +108,30 @@ export default function ServicesPage() {
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Título</label>
-            <input type="text" value={editing.title} onChange={(e) => setEditing({ ...editing, title: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <input type="text" value={editing.title} onChange={(e) => setEditing({ ...editing, title: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Descrição</label>
-            <textarea value={editing.description || ""} onChange={(e) => setEditing({ ...editing, description: e.target.value })} rows={3} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <textarea value={editing.description || ""} onChange={(e) => setEditing({ ...editing, description: e.target.value })} rows={3} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Ícone</label>
-              <select value={editing.icon} onChange={(e) => setEditing({ ...editing, icon: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50">
+              <select value={editing.icon} onChange={(e) => setEditing({ ...editing, icon: e.target.value })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50">
                 {iconOptions.map(i => <option key={i} value={i}>{i}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Ordem</label>
-              <input type="number" value={editing.sortOrder} onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+              <input type="number" value={editing.sortOrder} onChange={(e) => setEditing({ ...editing, sortOrder: Number(e.target.value) })} className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Imagem (URL)</label>
-            <input type="text" value={editing.image || ""} onChange={(e) => setEditing({ ...editing, image: e.target.value })} placeholder="/images/nome.jpg" className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+            <input type="text" value={editing.image || ""} onChange={(e) => setEditing({ ...editing, image: e.target.value })} placeholder="/images/nome.jpg" className="w-full px-3 py-2 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
           </div>
           <div className="flex items-center gap-3">
-            <input type="checkbox" id="svcActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded border-[#E5E2DE] text-[#D4A74B]" />
+            <input type="checkbox" id="svcActive" checked={editing.active} onChange={(e) => setEditing({ ...editing, active: e.target.checked })} className="w-4 h-4 rounded border-[#E5E2DE] text-[#012D76] accent-[#012D76]" />
             <label htmlFor="svcActive" className="text-sm text-[#1A1A1A]">Ativo</label>
           </div>
           <div className="flex justify-end gap-3 pt-2">

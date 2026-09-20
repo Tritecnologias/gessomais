@@ -32,10 +32,10 @@ export default function Login() {
     >
       {/* Background decoration */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-10"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 25% 25%, #D4A74B 0%, transparent 50%), radial-gradient(circle at 75% 75%, #D4A74B 0%, transparent 50%)",
+            "radial-gradient(circle at 25% 25%, #012D76 0%, transparent 50%), radial-gradient(circle at 75% 75%, #012D76 0%, transparent 50%)",
         }}
       />
 
@@ -70,7 +70,7 @@ export default function Login() {
               style={{
                 width: "40px",
                 height: "2px",
-                background: "#D4A74B",
+                background: "#012D76",
               }}
             />
           </div>
@@ -112,7 +112,7 @@ export default function Login() {
                   boxSizing: "border-box",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "#D4A74B";
+                  e.target.style.borderColor = "#012D76";
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = "rgba(255,255,255,0.12)";
@@ -155,7 +155,7 @@ export default function Login() {
                   boxSizing: "border-box",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "#D4A74B";
+                  e.target.style.borderColor = "#012D76";
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = "rgba(255,255,255,0.12)";
@@ -186,9 +186,9 @@ export default function Login() {
                 padding: "13px",
                 borderRadius: "10px",
                 background: loginMutation.isPending
-                  ? "rgba(212,167,75,0.5)"
-                  : "#D4A74B",
-                color: "#1A1A1A",
+                  ? "rgba(1,45,118,0.6)"
+                  : "#012D76",
+                color: "#FFFFFF",
                 fontWeight: 700,
                 fontSize: "0.85rem",
                 textTransform: "uppercase",
@@ -200,12 +200,12 @@ export default function Login() {
               }}
               onMouseEnter={(e) => {
                 if (!loginMutation.isPending) {
-                  (e.target as HTMLButtonElement).style.background = "#C49A3A";
+                  (e.target as HTMLButtonElement).style.background = "#023892";
                 }
               }}
               onMouseLeave={(e) => {
                 if (!loginMutation.isPending) {
-                  (e.target as HTMLButtonElement).style.background = "#D4A74B";
+                  (e.target as HTMLButtonElement).style.background = "#012D76";
                 }
               }}
             >

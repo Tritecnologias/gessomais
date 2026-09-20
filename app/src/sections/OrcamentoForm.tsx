@@ -63,8 +63,8 @@ export default function OrcamentoForm() {
           {/* Left — copy */}
           <div>
             <div className="animate-item mb-4">
-              <span className="inline-block text-xs font-medium uppercase tracking-[0.15em] px-4 py-1.5 rounded-full"
-                style={{ backgroundColor: 'rgba(212,167,75,0.15)', color: '#D4A74B', border: '1px solid rgba(212,167,75,0.3)' }}>
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] px-4 py-1.5 rounded-full"
+                style={{ backgroundColor: 'rgba(1, 45, 118, 0.4)', color: '#93C5FD', border: '1px solid rgba(147, 197, 253, 0.3)' }}>
                 Orçamento Gratuito
               </span>
             </div>
@@ -85,8 +85,8 @@ export default function OrcamentoForm() {
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: 'rgba(212,167,75,0.15)' }}>
-                    <Icon className="w-4 h-4" style={{ color: '#D4A74B' }} />
+                    style={{ backgroundColor: 'rgba(1, 45, 118, 0.4)' }}>
+                    <Icon className="w-4 h-4" style={{ color: '#93C5FD' }} />
                   </div>
                   <span className="text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>{text}</span>
                 </div>
@@ -115,7 +115,7 @@ export default function OrcamentoForm() {
                   <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{ color: '#22C55E' }} />
                   <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">Solicitação enviada!</h3>
                   <p className="text-sm text-[#6B6B6B]">Entraremos em contato em até 2 horas para agendar uma visita técnica gratuita.</p>
-                  <button onClick={() => setSent(false)} className="mt-5 text-sm font-medium underline" style={{ color: '#D4A74B' }}>
+                  <button onClick={() => setSent(false)} className="mt-5 text-sm font-medium underline" style={{ color: '#012D76' }}>
                     Fazer outra solicitação
                   </button>
                 </div>
@@ -124,7 +124,7 @@ export default function OrcamentoForm() {
                   <div>
                     <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Nome completo *</label>
                     <input type="text" placeholder="Seu nome" {...inp('name')}
-                      className={`w-full px-3 py-2.5 text-sm rounded-lg border ${errors.name ? 'border-red-400' : 'border-[#E5E2DE]'} focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50`} />
+                      className={`w-full px-3 py-2.5 text-sm rounded-lg border ${errors.name ? 'border-red-400' : 'border-[#E5E2DE]'} focus:outline-none focus:ring-2 focus:ring-[#012D76]/50`} />
                     {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
                   </div>
 
@@ -132,20 +132,20 @@ export default function OrcamentoForm() {
                     <div>
                       <label className="block text-sm font-medium text-[#1A1A1A] mb-1">WhatsApp *</label>
                       <input type="tel" placeholder="(11) 99999-9999" {...inp('phone')}
-                        className={`w-full px-3 py-2.5 text-sm rounded-lg border ${errors.phone ? 'border-red-400' : 'border-[#E5E2DE]'} focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50`} />
+                        className={`w-full px-3 py-2.5 text-sm rounded-lg border ${errors.phone ? 'border-red-400' : 'border-[#E5E2DE]'} focus:outline-none focus:ring-2 focus:ring-[#012D76]/50`} />
                       {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[#1A1A1A] mb-1">E-mail</label>
                       <input type="email" placeholder="seu@email.com" {...inp('email')}
-                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50" />
+                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50" />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Serviço de interesse</label>
                     <select {...inp('service')}
-                      className="w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50">
+                      className="w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50">
                       <option value="">Selecione...</option>
                       {SERVICES.map((s) => <option key={s} value={s}>{s}</option>)}
                     </select>
@@ -154,12 +154,12 @@ export default function OrcamentoForm() {
                   <div>
                     <label className="block text-sm font-medium text-[#1A1A1A] mb-1">Descreva seu projeto <span className="font-normal text-[#6B6B6B]">(opcional)</span></label>
                     <textarea {...inp('message')} rows={3} placeholder="Ex: quarto de 15m², quero sanca com LED e forro rebaixado..."
-                      className="w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#D4A74B]/50 resize-none" />
+                      className="w-full px-3 py-2.5 text-sm rounded-lg border border-[#E5E2DE] focus:outline-none focus:ring-2 focus:ring-[#012D76]/50 resize-none" />
                   </div>
 
                   <button type="submit" disabled={submitMutation.isPending}
-                    className="w-full inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-lg transition-all disabled:opacity-60"
-                    style={{ backgroundColor: '#D4A74B', color: '#1A1A1A' }}>
+                    className="w-full inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-lg transition-all disabled:opacity-60 shadow-md hover:shadow-lg hover:brightness-105"
+                    style={{ backgroundColor: '#012D76', color: '#FFFFFF' }}>
                     {submitMutation.isPending ? 'Enviando...' : <><Send className="w-4 h-4" /> Solicitar Orçamento Gratuito</>}
                   </button>
 

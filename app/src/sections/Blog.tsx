@@ -21,8 +21,8 @@ export default function Blog() {
         <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div>
             <div className="animate-item mb-3">
-              <span className="inline-block text-xs font-medium uppercase tracking-[0.15em] px-4 py-1.5 rounded-full"
-                style={{ backgroundColor: 'rgba(212,167,75,0.12)', color: '#D4A74B', border: '1px solid rgba(212,167,75,0.3)' }}>
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] px-4 py-1.5 rounded-full"
+                style={{ backgroundColor: 'rgba(1,45,118,0.08)', color: '#012D76', border: '1px solid rgba(1,45,118,0.2)' }}>
                 Dicas & Conteúdo
               </span>
             </div>
@@ -31,7 +31,7 @@ export default function Blog() {
               Aprenda com os Especialistas
             </h2>
           </div>
-          <Link to="/dicas" className="animate-item inline-flex items-center gap-2 text-sm font-medium text-[#D4A74B] hover:gap-3 transition-all">
+          <Link to="/dicas" className="animate-item inline-flex items-center gap-2 text-sm font-semibold text-[#012D76] hover:gap-3 transition-all">
             Ver todos os artigos <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -59,17 +59,17 @@ export default function Blog() {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <div className="w-full h-48 flex items-center justify-center"
-                    style={{ backgroundColor: 'rgba(212,167,75,0.1)' }}>
+                    style={{ backgroundColor: 'rgba(1,45,118,0.08)' }}>
                     <span className="text-4xl">📝</span>
                   </div>
                 )}
                 <div className="p-5 flex flex-col flex-1">
                   <p className="text-xs text-[#6B6B6B] mb-2">{formatDate(post.publishedAt)}</p>
-                  <h3 className="font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#D4A74B] transition-colors line-clamp-2">
+                  <h3 className="font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#012D76] transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   {post.excerpt && <p className="text-sm text-[#6B6B6B] line-clamp-3 flex-1">{post.excerpt}</p>}
-                  <span className="inline-flex items-center gap-1 text-xs font-medium mt-4" style={{ color: '#D4A74B' }}>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold mt-4" style={{ color: '#012D76' }}>
                     Ler artigo <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
